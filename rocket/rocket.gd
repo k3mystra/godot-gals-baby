@@ -5,6 +5,7 @@ var current_state: State = State.READY
 var is_thrusting: bool = false
 var exhaust : Exhaust
 @export var explosion : PackedScene
+@onready var gameover = $overscreen
 
 enum State {
 	READY,

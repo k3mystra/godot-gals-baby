@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://edyytby3mpe1" path="res://rocket/exhaust.gd" id="4_gxqvl"]
 [ext_resource type="PackedScene" uid="uid://dyeg6t3ohjg4t" path="res://rocket/explosion.tscn" id="5_q8yy8"]
 [ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="5_smobc"]
+[ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="6_smobc"]
+[ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="7_mjrg1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
 radius = 7.0
@@ -361,5 +363,26 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_3pfuj")
 animation = &"vroom vroom"
 script = ExtResource("4_gxqvl")
+
+[node name="overscreen" type="Control" parent="." unique_id=918912999]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Black" type="Sprite2D" parent="overscreen" unique_id=869351038]
+scale = Vector2(8.969558, 12.304762)
+texture = ExtResource("6_smobc")
+
+[node name="Label" type="Label" parent="overscreen" unique_id=964750661]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -16.0
+offset_right = 105.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("7_mjrg1")
+theme_override_font_sizes/font_size = 33
+text = "YOU DIED"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
