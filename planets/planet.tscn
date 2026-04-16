@@ -23,7 +23,7 @@ radius = 124.036285
 [node name="Planet" type="StaticBody2D" unique_id=730577519]
 physics_material_override = SubResource("PhysicsMaterial_0coog")
 script = ExtResource("1_0coog")
-gravity_constant = 4000.0
+gravity_constant = 5000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2046128297]
 sprite_frames = SubResource("SpriteFrames_xgwrp")
