@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dbd6pq7m14mx7"]
 
-[ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="1_i0la0"]
 [ext_resource type="Script" uid="uid://1vnnjof384fp" path="res://rocket/rocket.gd" id="1_vaqdw"]
 [ext_resource type="Texture2D" uid="uid://b7xlgephf2kkl" path="res://rocket/Animated_Exhaust_pixel_Pack_Free/Exhaust_03/exhaust_03_spritesheet.png" id="3_c7012"]
 [ext_resource type="Script" uid="uid://edyytby3mpe1" path="res://rocket/exhaust.gd" id="4_gxqvl"]
+[ext_resource type="PackedScene" uid="uid://dyeg6t3ohjg4t" path="res://rocket/explosion.tscn" id="5_q8yy8"]
+[ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="5_smobc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
-radius = 15.0
-height = 52.0
+radius = 7.0
+height = 36.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxqvl"]
 atlas = ExtResource("3_c7012")
@@ -198,7 +199,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbdcq")
 }],
-"loop": true,
+"loop": false,
 "name": &"continuous vroom vroom",
 "speed": 30.0
 }, {
@@ -206,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"empty vroom vroom",
 "speed": 5.0
 }, {
@@ -335,9 +336,12 @@ animations = [{
 }]
 
 [node name="Rocket" type="RigidBody2D" unique_id=384636652 groups=["rocket"]]
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 0.35
 angular_damp = 0.35
 script = ExtResource("1_vaqdw")
+explosion = ExtResource("5_q8yy8")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730089916]
@@ -346,15 +350,16 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_vaqdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283426119]
+z_index = 1
 rotation = 1.5707964
-texture = ExtResource("1_i0la0")
+texture = ExtResource("5_smobc")
 
 [node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=75350880]
 position = Vector2(-52, 0)
 rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_3pfuj")
-animation = &"continuous vroom vroom"
-frame = 3
-frame_progress = 0.49100208
+animation = &"vroom vroom"
 script = ExtResource("4_gxqvl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
