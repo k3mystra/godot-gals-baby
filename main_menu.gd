@@ -1,12 +1,18 @@
-extends Control
+extends Node2D
 
 @export var amplitude : float
 @export var frequency : float
 @export var angleLimit : float
-@onready var playbutton = $playholder
-@onready var quitbutton = $quitbutton
+
+@onready var playbutton = $Control/playholder
+@onready var quitbutton = $Control/quitholder
+@onready var rocket = $Control/rocket
+@onready var spawner = $star_spawner
+
+var star = preload("res://star_menu.tscn")
 var clock = 0.0
 var dir = 1.0
+var timer = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,13 +25,22 @@ func _process(delta: float) -> void:
 	playbutton.position.y = sin(clock * frequency) * amplitude
 	playbutton.position.x = cos(clock * frequency/2) * amplitude
 	_turn_anim()
+	rocket.rotation_degrees += 0.5
+	timer -= delta
+	if timer <= 0:
+		print ("do the thing")
+		spawner.position.y = randf_range(-300, 300)
+		timer = randf_range(0.06, 1.2)
+		var stars = star.instantiate()
+		stars.global_position = spawner.global_position
+		get_parent().add_child(stars)
 
 
 func _turn_anim():
 	if playbutton.position.x < 0:
-		dir = 0.05
+		dir = 0.03
 	elif playbutton.position.x > 0:
-		dir = -0.05
+		dir = -0.03
 	playbutton.rotation_degrees = clamp(playbutton.rotation_degrees + dir, -angleLimit, angleLimit)
 
 

@@ -21,7 +21,7 @@ GlobalSignal="*uid://dj0v4wu5clcta"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/_Godot-IDE_/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
