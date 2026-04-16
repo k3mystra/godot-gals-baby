@@ -4,6 +4,7 @@ class_name Rocket extends RigidBody2D
 var current_state: State = State.READY
 var is_thrusting: bool = false
 var exhaust : Exhaust
+@export var explosion : PackedScene
 
 enum State {
 	READY,
@@ -13,6 +14,7 @@ enum State {
 }
 
 func _ready() -> void:
+
 	freeze = true
 	exhaust = $Exhaust
 	exhaust.play("empty vroom vroom")
@@ -22,10 +24,7 @@ func lift_off():
 	freeze = false
 	GlobalSignal.rocket_launched.emit()
 
-func stop_gameplay():
-	freeze == true
-	set_process_input(false)
-	set_physics_process(false)	
+
 
 func _input(event):
 	if current_state == State.READY:
@@ -40,8 +39,32 @@ func _input(event):
 			is_thrusting = false
 			exhaust.stop_adding_power()
 
+
 	
 func _physics_process(_delta):
 	if is_thrusting:
 		var forward_direction = transform.x
 		apply_central_force(forward_direction * thrust_power)
+
+func stop_gameplay():
+	set_deferred("freeze", true) 
+	
+	# Do the same for anything else that messes with physics state
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+	
+	# These are safe to call directly
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
+	set_process_input(false)
+	set_physics_process(false)
+
+var explosion_position = Vector2(-6,-52)
+
+func _on_body_entered(body: Node2D) -> void:
+	stop_gameplay()
+	var new_explosion = explosion.instantiate() as Explosion
+	get_parent().add_child(new_explosion)
+	new_explosion.global_position = global_position + explosion_position
+	new_explosion.play("3")
+	hide()
