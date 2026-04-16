@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bidrmjjoqp4p7"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://Levels/level_template/main.tscn" id="1_pp3gk"]
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="2_u6f3h"]
+
+[node name="Main" unique_id=294610226 instance=ExtResource("1_pp3gk")]
+
+[node name="Planet3" parent="." index="1" unique_id=730577519 instance=ExtResource("2_u6f3h")]
+position = Vector2(640, 312)

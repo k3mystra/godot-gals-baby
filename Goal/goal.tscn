@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxs42qmllx712" path="res://Goal/goal.gd" id="1_3iwka"]
 [ext_resource type="Texture2D" uid="uid://ddi6rd1jwbc74" path="res://Goal/flag animation.png" id="2_y78nh"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="3_po8gq"]
+[ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="4_po8gq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po8gq"]
 atlas = ExtResource("2_y78nh")
@@ -89,5 +90,28 @@ text = "YOU PASSED"
 label_settings = SubResource("LabelSettings_haf5f")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="overscreen" type="Control" parent="." unique_id=1053853297]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Black" type="Sprite2D" parent="overscreen" unique_id=207878793]
+self_modulate = Color(1, 1, 1, 0.59607846)
+scale = Vector2(4.08, 4.7788854)
+texture = ExtResource("4_po8gq")
+
+[node name="Label" type="Label" parent="overscreen" unique_id=209779595]
+layout_mode = 0
+offset_left = -80.00001
+offset_top = -16.0
+offset_right = 80.99999
+offset_bottom = 14.0
+scale = Vector2(1.0999424, 1.0468293)
+theme_override_fonts/font = ExtResource("3_po8gq")
+theme_override_font_sizes/font_size = 33
+text = "YOU DIED"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

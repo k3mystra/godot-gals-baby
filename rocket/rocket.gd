@@ -5,7 +5,7 @@ var current_state: State = State.READY
 var is_thrusting: bool = false
 var exhaust : Exhaust
 @export var explosion : PackedScene
-@onready var gameover = $overscreen
+
 
 enum State {
 	READY,
@@ -69,3 +69,4 @@ func _on_body_entered(body: Node2D) -> void:
 	new_explosion.global_position = global_position + explosion_position
 	new_explosion.play("3")
 	hide()
+	GlobalSignal.dead.emit()
