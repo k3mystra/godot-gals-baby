@@ -38,15 +38,24 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="main" unique_id=251931327]
-layout_mode = 1
-offset_left = -199.99997
-offset_top = -72.0
-offset_right = 2.0000305
-offset_bottom = -37.0
+[node name="workholder" type="Node2D" parent="main" unique_id=847325077]
+position = Vector2(15, -90)
+
+[node name="lost" type="Label" parent="main/workholder" unique_id=251931327]
+offset_left = -180.0
+offset_right = -116.0
+offset_bottom = 16.0
 scale = Vector2(2.0888631, 2.0888631)
 theme_override_fonts/font = ExtResource("1_06t4h")
-text = "LOST ROCKET"
+text = "LOST"
+horizontal_alignment = 1
+
+[node name="rocket" type="Label" parent="main/workholder" unique_id=1871921779]
+offset_right = 96.0
+offset_bottom = 16.0
+scale = Vector2(2.0888631, 2.0888631)
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "ROCKET"
 horizontal_alignment = 1
 
 [node name="playholder" type="Node2D" parent="main" unique_id=1530577382]
@@ -79,6 +88,7 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 text = "QUIT"
 
 [node name="select" type="GridContainer" parent="." unique_id=1283662250]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -13,6 +13,9 @@ extends Node2D
 @onready var select = $select
 @onready var level_container = $CurrentLevel
 @onready var details = $detail
+@onready var camera = $Camera2D
+@onready var lost = $main/workholder/lost
+@onready var crocket = $main/workholder/rocket
 
 var star = preload("res://star_menu.tscn")
 var clock = 0.0
@@ -24,6 +27,7 @@ var spawn_star = true
 
 
 func _ready() -> void:
+	details.show()
 	main.show()
 	select.hide()
 	GlobalSignal.level_selected.connect(load_level)
@@ -38,6 +42,7 @@ func _process(delta: float) -> void:
 	playbutton.position.y = sin(clock * frequency) * amplitude
 	playbutton.position.x = cos(clock * frequency/2) * amplitude
 	_turn_anim()
+	_title_move(clock)
 	rocket.rotation_degrees += 0.5
 	timer -= delta
 	if timer <= 0 and spawn_star:
@@ -56,8 +61,6 @@ func _turn_anim():
 	playbutton.rotation_degrees = clamp(playbutton.rotation_degrees + dir, -angleLimit, angleLimit)
 
 func _on_playbutton_pressed() -> void:
-	GlobalSignal.clear_background.emit()
-	spawn_star = false
 	main.hide()
 	select.show()
 
@@ -65,6 +68,10 @@ func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
 
 func _onLevelButtonPressed(level_name: String):
+	spawn_star = false
+	details.hide()
+	camera.enabled = false
+	get_tree().call_group("stars", "queue_free")
 	print ("load level ", level_name)
 	var index = level_name.to_int() - 1 
 	load_level(index)
@@ -92,3 +99,7 @@ func _on_level_complete():
 		load_level(current_level_index)
 	else:
 		print("You win the whole game!")
+
+func _title_move(clock: float):
+	lost.position.y = cos(clock * frequency/2) * amplitude
+	crocket.position.y = cos(clock * frequency) * amplitude
