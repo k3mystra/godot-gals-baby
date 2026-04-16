@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c0hf6tmpqftlb"]
+
+[ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/planet.gd" id="1_0coog"]
+[ext_resource type="Texture2D" uid="uid://lfan6cwgp2uw" path="res://planets/planet-template.png" id="2_60e5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8ms6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_60e5m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
+radius = 126.0
+
+[node name="Planet" type="RigidBody2D" unique_id=1875898619]
+script = ExtResource("1_0coog")
+
+[node name="AnimatedSprites" type="AnimatedSprite2D" parent="." unique_id=941243523]
+sprite_frames = SubResource("SpriteFrames_h8ms6")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1945791396]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_ggt7d")
