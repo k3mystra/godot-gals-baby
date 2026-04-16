@@ -21,6 +21,7 @@ animations = [{
 radius = 124.036285
 
 [node name="Planet" type="StaticBody2D" unique_id=730577519]
+input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_0coog")
 script = ExtResource("1_0coog")
 gravity_constant = 5000.0
@@ -31,3 +32,14 @@ sprite_frames = SubResource("SpriteFrames_xgwrp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1271979777]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_0coog")
+
+[node name="Label" type="Label" parent="." unique_id=754522368]
+offset_left = -37.0
+offset_top = -22.0
+offset_right = 37.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Mass"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
