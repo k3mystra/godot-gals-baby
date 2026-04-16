@@ -21,19 +21,13 @@ GlobalSignal="*uid://dj0v4wu5clcta"
 
 [display]
 
-<<<<<<< Updated upstream
 window/size/viewport_width=1980
-window/size/viewport_height=1080
-||||||| Stash base
-=======
-window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/size/always_on_top=true
 window/stretch/mode="viewport"
->>>>>>> Stashed changes
 
 [editor_plugins]
 
