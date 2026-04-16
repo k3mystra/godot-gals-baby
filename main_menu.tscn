@@ -3,6 +3,8 @@
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_2.tscn" id="3_nlkkf"]
+[ext_resource type="PackedScene" uid="uid://bidrmjjoqp4p7" path="res://Levels/test_level_1.tscn" id="3_qe12f"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fu7sn"]
@@ -10,33 +12,31 @@ load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ct
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
+levels = Array[PackedScene]([ExtResource("3_qe12f"), ExtResource("3_nlkkf")])
 
-[node name="background" type="Sprite2D" parent="." unique_id=875876304]
+[node name="details" type="Node2D" parent="." unique_id=920578416]
+
+[node name="background" type="Sprite2D" parent="details" unique_id=875876304]
 scale = Vector2(37.91938, 25.506638)
 texture = SubResource("CompressedTexture2D_fu7sn")
 
-[node name="star_spawner" type="Node2D" parent="." unique_id=2119468490]
+[node name="star_spawner" type="Node2D" parent="details" unique_id=2119468490]
 position = Vector2(832, 0)
+
+[node name="rocket" type="Sprite2D" parent="details" unique_id=185569904]
+position = Vector2(-360, 16)
+scale = Vector2(1.5829271, 1.5829271)
+texture = ExtResource("3_fu7sn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
 zoom = Vector2(1.5, 1.5)
 
 [node name="main" type="Control" parent="." unique_id=425663841]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="main" unique_id=251931327]
-layout_mode = 1
-offset_left = -199.99997
-offset_top = -72.0
-offset_right = 2.0000305
-offset_bottom = -37.0
-scale = Vector2(2.0888631, 2.0888631)
-theme_override_fonts/font = ExtResource("1_06t4h")
-text = "LOST ROCKET"
-horizontal_alignment = 1
 
 [node name="playholder" type="Node2D" parent="main" unique_id=1530577382]
 position = Vector2(0, 16)
@@ -67,25 +67,40 @@ scale = Vector2(2.0018377, 2.0018377)
 theme_override_fonts/font = ExtResource("1_06t4h")
 text = "QUIT"
 
-[node name="rocket" type="Sprite2D" parent="main" unique_id=185569904]
-position = Vector2(-360, 16)
-scale = Vector2(0.6013535, 0.6013535)
-texture = ExtResource("3_fu7sn")
+[node name="wordholder" type="Node2D" parent="main" unique_id=971099975]
+position = Vector2(0, -105)
+
+[node name="lost" type="Label" parent="main/wordholder" unique_id=1878096568]
+offset_left = -150.0
+offset_right = -86.0
+offset_bottom = 16.0
+scale = Vector2(2.0888631, 2.0888631)
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "LOST"
+horizontal_alignment = 1
+
+[node name="rocket" type="Label" parent="main/wordholder" unique_id=2056434599]
+offset_left = 15.00001
+offset_right = 111.00001
+offset_bottom = 16.0
+scale = Vector2(2.0888631, 2.0888631)
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "ROCKET"
+horizontal_alignment = 1
 
 [node name="select" type="GridContainer" parent="." unique_id=1283662250]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -614.0
-offset_top = -90.0
-offset_right = 614.0
-offset_bottom = 71.0
+offset_left = -240.0
+offset_top = -252.0
+offset_right = 235.0
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 55
 theme_override_constants/v_separation = 55
-columns = 5
+columns = 2
 
 [node name="lvl1" type="Button" parent="select" unique_id=1111489513]
 layout_mode = 2
@@ -148,5 +163,7 @@ theme_override_font_sizes/font_size = 50
 text = "LEVEL 10
 "
 
-[connection signal="pressed" from="main/playholder/playbutton" to="main" method="_on_playbutton_pressed"]
+[node name="CurrentLevel" type="Node2D" parent="." unique_id=397011199]
+
+[connection signal="pressed" from="main/playholder/playbutton" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]

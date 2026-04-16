@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bo45xpyabmq44"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://Levels/level_template/main.tscn" id="1_ll1bl"]
+
+[node name="Main" unique_id=294610226 instance=ExtResource("1_ll1bl")]
+
+[node name="Planet" parent="." index="0" unique_id=730577519]
+position = Vector2(-6.1035156e-05, 180)
+scale = Vector2(0.4557231, 0.4557231)
+
+[node name="Rocket" parent="." index="1" unique_id=384636652]
+position = Vector2(-495, 0)
+
+[node name="Planet2" parent="." index="2" unique_id=994631653]
+position = Vector2(0, -176)
+
+[node name="Goal" parent="." index="3" unique_id=586600952]
+position = Vector2(480, 0)
+
+[node name="Camera2D" parent="." index="4" unique_id=1573105880]
+position = Vector2(-45, 0)

@@ -12,6 +12,9 @@ func _ready() -> void:
 	GlobalSignal.dead.connect(deadscreen)
 	GlobalSignal.goal_reached.connect(winscreen)
 
+func _input(event: InputEvent) -> void:
+	pass
+
 func deadscreen():
 	gameover.show()
 	var tween = create_tween()

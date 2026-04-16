@@ -7,18 +7,33 @@ extends Node2D
 @onready var main = $main
 @onready var playbutton = $main/playholder
 @onready var quitbutton = $main/quitholder
-@onready var rocket = $main/rocket
-@onready var spawner = $star_spawner
+@onready var rocket = $details/rocket
+@onready var spawner = $details/star_spawner
 @onready var select = $select
+@onready var details = $details
+@onready var lost = $main/wordholder/lost
+@onready var crocket = $main/wordholder/rocket
+@onready var camera = $Camera2D
 
 var star = preload("res://star_menu.tscn")
 var clock = 0.0
 var dir = 1.0
 var timer = 1.0
+var spawn_star = true
+
+@export var levels: Array[PackedScene] # Drag your .tscn files here in the Inspector
+
+var current_level_index: int = -1
+var active_level_node: Node = null
+
+@onready var level_container = $CurrentLevel
 
 func _ready() -> void:
 	main.show()
 	select.hide()
+	for button in select.get_children():
+		if button is Button:
+			button.pressed.connect(_onLevelButtonPressed.bind(button.name))
 
 func _process(delta: float) -> void:
 	clock += delta * 2
@@ -27,7 +42,8 @@ func _process(delta: float) -> void:
 	_turn_anim()
 	rocket.rotation_degrees += 0.5
 	timer -= delta
-	if timer <= 0:
+	_title_move(clock)
+	if timer <= 0 and spawn_star:
 		print ("do the thing")
 		spawner.position.y = randf_range(-360, 360)
 		timer = randf_range(0.06, 1.2)
@@ -48,3 +64,40 @@ func _on_playbutton_pressed() -> void:
 
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
+
+func _onLevelButtonPressed(level_name: String):
+	spawn_star = false
+	details.hide()
+	camera.enabled = false
+	get_tree().call_group("stars", "queue_free")
+	print ("load level ", level_name)
+	var index = level_name.to_int() - 1 
+	load_level(index)
+	main.hide()
+	select.hide()
+
+func load_level(index: int):
+	# 1. Clean up the old level
+	if active_level_node:
+		active_level_node.queue_free()
+	
+	current_level_index = index
+	# 2. Instance the new level
+	var level_resource = levels[index]
+	active_level_node = level_resource.instantiate()
+	
+	# 3. Add it to the container
+	level_container.add_child(active_level_node)
+	print("Loaded Level: ", str(index + 1))
+	
+func _on_level_complete():
+	current_level_index += 1
+	
+	if current_level_index < levels.size():
+		call_deferred("load_level", current_level_index)
+	else:
+		print("You win the whole game!")
+
+func _title_move(clock: float):
+	lost.position.y = cos(clock * frequency/2) * amplitude
+	crocket.position.y = cos(clock * frequency) * amplitude

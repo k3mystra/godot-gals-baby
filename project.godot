@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot-gals-baby"
-run/main_scene="uid://das5nwsxp6wxh"
+run/main_scene="uid://bxs4rq1d3ert7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,13 @@ GlobalSignal="*uid://dj0v4wu5clcta"
 
 [display]
 
-window/size/viewport_width=1980
+window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
+window/stretch/mode="canvas_items"
+<<<<<<<Updatedupstreamwindow/size/viewport_width=1980
 
 [editor_plugins]
 
