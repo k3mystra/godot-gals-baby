@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://butlahjrs5tcl" path="res://placeholder/star.png" id="2_w2mpm"]
 
 [node name="star" type="CharacterBody2D" unique_id=177323121]
-z_index = 5
+z_index = 1
 script = ExtResource("1_pvifd")
 speed = 200.0
 

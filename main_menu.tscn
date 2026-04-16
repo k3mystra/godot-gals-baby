@@ -2,7 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="2_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://bidrmjjoqp4p7" path="res://Levels/test_level_1.tscn" id="3_qe12f"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fu7sn"]
@@ -10,13 +12,22 @@ load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ct
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
+levels = Array[PackedScene]([ExtResource("2_nlkkf"), ExtResource("3_qe12f")])
 
-[node name="background" type="Sprite2D" parent="." unique_id=875876304]
+[node name="detail" type="Node2D" parent="." unique_id=1682257288]
+
+[node name="background" type="Sprite2D" parent="detail" unique_id=309255177]
 scale = Vector2(37.91938, 25.506638)
 texture = SubResource("CompressedTexture2D_fu7sn")
 
-[node name="star_spawner" type="Node2D" parent="." unique_id=2119468490]
-position = Vector2(832, 0)
+[node name="star_spawner" type="Node2D" parent="detail" unique_id=1308383668]
+position = Vector2(405, 0)
+
+[node name="rocket" type="Sprite2D" parent="detail" unique_id=1994678838]
+z_index = 5
+position = Vector2(-270, 0)
+scale = Vector2(0.6013535, 0.6013535)
+texture = ExtResource("3_fu7sn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
 zoom = Vector2(1.5, 1.5)
@@ -67,25 +78,20 @@ scale = Vector2(2.0018377, 2.0018377)
 theme_override_fonts/font = ExtResource("1_06t4h")
 text = "QUIT"
 
-[node name="rocket" type="Sprite2D" parent="main" unique_id=185569904]
-position = Vector2(-360, 16)
-scale = Vector2(0.6013535, 0.6013535)
-texture = ExtResource("3_fu7sn")
-
 [node name="select" type="GridContainer" parent="." unique_id=1283662250]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -614.0
-offset_top = -90.0
-offset_right = 614.0
-offset_bottom = 71.0
+offset_left = -180.00002
+offset_top = -195.0
+offset_right = 295.0
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7857188, 0.7857188)
 theme_override_constants/h_separation = 55
 theme_override_constants/v_separation = 55
-columns = 5
+columns = 2
 
 [node name="lvl1" type="Button" parent="select" unique_id=1111489513]
 layout_mode = 2
@@ -148,5 +154,8 @@ theme_override_font_sizes/font_size = 50
 text = "LEVEL 10
 "
 
+[node name="CurrentLevel" type="Node2D" parent="." unique_id=669174437]
+
+[connection signal="pressed" from="main/playholder/playbutton" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="main/playholder/playbutton" to="main" method="_on_playbutton_pressed"]
 [connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]

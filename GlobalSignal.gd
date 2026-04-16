@@ -7,3 +7,5 @@ signal rocket_launched
 signal goal_reached
 
 signal dead
+
+signal clear_background
