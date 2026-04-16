@@ -11,11 +11,11 @@ load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ct
 script = ExtResource("1_7vrkn")
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
-scale = Vector2(27.008839, 19.405296)
+scale = Vector2(37.91938, 25.506638)
 texture = SubResource("CompressedTexture2D_fu7sn")
 
 [node name="star_spawner" type="Node2D" parent="." unique_id=2119468490]
-position = Vector2(576, 0)
+position = Vector2(832, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
 zoom = Vector2(1.5, 1.5)

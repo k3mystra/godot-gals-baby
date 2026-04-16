@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var speed : float
 var allowDel := false
 
+func _ready() -> void:
+	rotation_degrees += randf_range(0, 360)
+
 func _physics_process(delta: float) -> void:
 	velocity.x = -randf_range(speed/2, speed)
 	move_and_slide()

@@ -6,7 +6,7 @@
 [node name="star" type="CharacterBody2D" unique_id=177323121]
 z_index = 5
 script = ExtResource("1_pvifd")
-speed = 85.0
+speed = 120.0
 
 [node name="Star" type="Sprite2D" parent="." unique_id=745144705]
 texture = ExtResource("2_w2mpm")

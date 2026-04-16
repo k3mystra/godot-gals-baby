@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var amplitude : float
-@export var frequency : float
-@export var angleLimit : float
+@export var amplitude : float = 6
+@export var frequency : float = 1
+@export var angleLimit : float = 5
 
 @onready var playbutton = $Control/playholder
 @onready var quitbutton = $Control/quitholder
