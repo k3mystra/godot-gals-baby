@@ -19,9 +19,14 @@ config/icon="res://icon.svg"
 
 GlobalSignal="*uid://dj0v4wu5clcta"
 
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1080
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/_Godot-IDE_/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
