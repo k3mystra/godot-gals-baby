@@ -1,27 +1,22 @@
 [gd_scene format=3 uid="uid://dbd6pq7m14mx7"]
 
-[ext_resource type="Texture2D" uid="uid://beqgnhpaq8alb" path="res://rocket/rocket-template.png" id="1_i0la0"]
+[ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="1_i0la0"]
+[ext_resource type="Script" uid="uid://1vnnjof384fp" path="res://rocket/rocket.gd" id="1_vaqdw"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vaqdw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_i0la0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7012"]
-size = Vector2(112, 35)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
+radius = 15.0
+height = 52.0
 
 [node name="Rocket" type="RigidBody2D" unique_id=384636652 groups=["rocket"]]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=875809865]
-position = Vector2(-3, -18)
-sprite_frames = SubResource("SpriteFrames_vaqdw")
+position = Vector2(65, 128)
+script = ExtResource("1_vaqdw")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730089916]
-position = Vector2(-1, -1.5)
-shape = SubResource("RectangleShape2D_c7012")
+position = Vector2(-5, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vaqdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283426119]
+rotation = 1.5707964
+texture = ExtResource("1_i0la0")
