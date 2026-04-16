@@ -9,10 +9,12 @@ var active_level_node: Node = null
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.keycode == KEY_1 :
+		if event.keycode == KEY_1 and event.is_released():
 			load_level(0)
-		if event.keycode == KEY_2:
+		if event.keycode == KEY_2 and event.is_released():
 			load_level(1)
+
+
 
 func _ready():
 	GlobalSignal.level_selected.connect(load_level)
@@ -31,7 +33,7 @@ func load_level(index: int):
 	# 3. Add it to the container
 	level_container.add_child(active_level_node)
 	print("Loaded Level: ", str(index + 1))
-
+	
 func _on_level_complete():
 	current_level_index += 1
 	

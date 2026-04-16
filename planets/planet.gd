@@ -14,6 +14,7 @@ func _ready() -> void:
 	GlobalSignal.goal_reached.connect(deactivate_everything)
 	update_mass_label()
 	deactivate_everything()
+	
 
 func deactivate_everything():
 	set_process_input(false)

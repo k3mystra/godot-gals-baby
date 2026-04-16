@@ -15,7 +15,6 @@ enum State {
 }
 
 func _ready() -> void:
-
 	freeze = true
 	exhaust = $Exhaust
 	exhaust.play("empty vroom vroom")
