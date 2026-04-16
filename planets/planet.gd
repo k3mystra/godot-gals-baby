@@ -10,8 +10,18 @@ var previous_mouse_position: Vector2
 var is_dragging: bool = false
 
 func _ready() -> void:
+	GlobalSignal.rocket_launched.connect(activate_everything)
+	GlobalSignal.goal_reached.connect(deactivate_everything)
 	update_mass_label()
+	deactivate_everything()
 
+func deactivate_everything():
+	set_process_input(false)
+	set_physics_process(false)
+	
+func activate_everything():
+	set_process_input(true)
+	set_physics_process(true)
 
 func _physics_process(_delta: float) -> void:
 	for rocket in rockets:
