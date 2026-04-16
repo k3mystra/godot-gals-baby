@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
+[ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fu7sn"]
 load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ctex"
@@ -20,13 +21,13 @@ position = Vector2(832, 0)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
 zoom = Vector2(1.5, 1.5)
 
-[node name="Control" type="Control" parent="." unique_id=425663841]
+[node name="main" type="Control" parent="." unique_id=425663841]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control" unique_id=251931327]
+[node name="Label" type="Label" parent="main" unique_id=251931327]
 layout_mode = 1
 offset_left = -199.99997
 offset_top = -72.0
@@ -37,10 +38,10 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 text = "LOST ROCKET"
 horizontal_alignment = 1
 
-[node name="playholder" type="Node2D" parent="Control" unique_id=1530577382]
+[node name="playholder" type="Node2D" parent="main" unique_id=1530577382]
 position = Vector2(0, 16)
 
-[node name="playbutton" type="Button" parent="Control/playholder" unique_id=1770529903]
+[node name="playbutton" type="Button" parent="main/playholder" unique_id=1770529903]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -55,9 +56,9 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 text = "Play"
 metadata/_edit_use_anchors_ = true
 
-[node name="quitholder" type="Node2D" parent="Control" unique_id=1114611440]
+[node name="quitholder" type="Node2D" parent="main" unique_id=1114611440]
 
-[node name="quitbutton" type="Button" parent="Control/quitholder" unique_id=1953409122]
+[node name="quitbutton" type="Button" parent="main/quitholder" unique_id=1953409122]
 offset_left = -64.0
 offset_top = 104.000015
 offset_right = 4.0
@@ -66,10 +67,86 @@ scale = Vector2(2.0018377, 2.0018377)
 theme_override_fonts/font = ExtResource("1_06t4h")
 text = "QUIT"
 
-[node name="rocket" type="Sprite2D" parent="Control" unique_id=185569904]
+[node name="rocket" type="Sprite2D" parent="main" unique_id=185569904]
 position = Vector2(-360, 16)
 scale = Vector2(0.6013535, 0.6013535)
 texture = ExtResource("3_fu7sn")
 
-[connection signal="pressed" from="Control/playholder/playbutton" to="Control" method="_on_playbutton_pressed"]
-[connection signal="pressed" from="Control/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]
+[node name="select" type="GridContainer" parent="." unique_id=1283662250]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -614.0
+offset_top = -90.0
+offset_right = 614.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 55
+theme_override_constants/v_separation = 55
+columns = 5
+
+[node name="lvl1" type="Button" parent="select" unique_id=1111489513]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 1"
+
+[node name="lvl2" type="Button" parent="select" unique_id=2053196100]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 2"
+
+[node name="lvl3" type="Button" parent="select" unique_id=1969859546]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 3"
+
+[node name="lvl4" type="Button" parent="select" unique_id=831445915]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 4"
+
+[node name="lvl5" type="Button" parent="select" unique_id=1807449491]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 5"
+
+[node name="lvl6" type="Button" parent="select" unique_id=671067474]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 6"
+
+[node name="lvl7" type="Button" parent="select" unique_id=1512687287]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 7"
+
+[node name="lvl8" type="Button" parent="select" unique_id=241144673]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 8"
+
+[node name="lvl9" type="Button" parent="select" unique_id=715997333]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 9"
+
+[node name="lvl10" type="Button" parent="select" unique_id=1571569720]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL 10
+"
+
+[connection signal="pressed" from="main/playholder/playbutton" to="main" method="_on_playbutton_pressed"]
+[connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]
