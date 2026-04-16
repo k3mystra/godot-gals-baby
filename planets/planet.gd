@@ -18,7 +18,7 @@ func _ready() -> void:
 func deactivate_everything():
 	set_process_input(false)
 	set_physics_process(false)
-	
+
 func activate_everything():
 	set_process_input(true)
 	set_physics_process(true)
