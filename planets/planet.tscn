@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
 [ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/planet.gd" id="1_0coog"]
-[ext_resource type="SpriteFrames" uid="uid://ctt6y0rel2ewy" path="res://PlanetAnimation1.tres" id="2_0coog"]
+[ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://PlanetAnimation1.tres" id="2_0coog"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0coog"]
 bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
-radius = 124.036285
+radius = 47.010635
 
 [node name="Planet" type="StaticBody2D" unique_id=730577519]
 input_pickable = true
@@ -16,7 +16,6 @@ script = ExtResource("1_0coog")
 gravity_constant = 5000.0
 
 [node name="Land" type="AnimatedSprite2D" parent="." unique_id=2046128297]
-scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("2_0coog")
 animation = &"new_animation"
 autoplay = "new_animation"
@@ -31,8 +30,10 @@ offset_top = -22.0
 offset_right = 37.0
 offset_bottom = 20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 15
 text = "Mass"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1262577320]
 
