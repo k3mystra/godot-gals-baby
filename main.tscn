@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://das5nwsxp6wxh"]
+
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dbd6pq7m14mx7" path="res://rocket/rocket.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=294610226]
+
+[node name="Planet" parent="." unique_id=730577519 instance=ExtResource("1_ig7tw")]
+position = Vector2(476, 311)
+scale = Vector2(0.4, 0.4)
+
+[node name="Rocket" parent="." unique_id=384636652 instance=ExtResource("2_0xm2m")]
+position = Vector2(275, 238)
+scale = Vector2(0.5, 0.5)
