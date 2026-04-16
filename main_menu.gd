@@ -4,15 +4,21 @@ extends Node2D
 @export var frequency : float = 1
 @export var angleLimit : float = 5
 
-@onready var playbutton = $Control/playholder
-@onready var quitbutton = $Control/quitholder
-@onready var rocket = $Control/rocket
+@onready var main = $main
+@onready var playbutton = $main/playholder
+@onready var quitbutton = $main/quitholder
+@onready var rocket = $main/rocket
 @onready var spawner = $star_spawner
+@onready var select = $select
 
 var star = preload("res://star_menu.tscn")
 var clock = 0.0
 var dir = 1.0
 var timer = 1.0
+
+func _ready() -> void:
+	main.show()
+	select.hide()
 
 func _process(delta: float) -> void:
 	clock += delta * 2
@@ -23,7 +29,7 @@ func _process(delta: float) -> void:
 	timer -= delta
 	if timer <= 0:
 		print ("do the thing")
-		spawner.position.y = randf_range(-300, 300)
+		spawner.position.y = randf_range(-360, 360)
 		timer = randf_range(0.06, 1.2)
 		var stars = star.instantiate()
 		stars.global_position = spawner.global_position
@@ -37,7 +43,8 @@ func _turn_anim():
 	playbutton.rotation_degrees = clamp(playbutton.rotation_degrees + dir, -angleLimit, angleLimit)
 
 func _on_playbutton_pressed() -> void:
-	pass # Replace with function body.
+	main.hide()
+	select.show()
 
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
