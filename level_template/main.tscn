@@ -3,6 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dbd6pq7m14mx7" path="res://rocket/rocket.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="3_c0c11"]
+[ext_resource type="Script" uid="uid://civ35i4t7kacj" path="res://all_ui.gd" id="4_xdxlv"]
+[ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="5_kdqer"]
+[ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="6_kne2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5b86v"]
+font = ExtResource("6_kne2b")
+font_size = 90
 
 [node name="Main" type="Node2D" unique_id=294610226]
 
@@ -20,3 +27,56 @@ mass = 12.0
 position = Vector2(70, 157)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573105880]
+
+[node name="AllUI" type="Node2D" parent="." unique_id=1718705384]
+script = ExtResource("4_xdxlv")
+
+[node name="UI" type="CanvasLayer" parent="AllUI" unique_id=1873815533]
+follow_viewport_enabled = true
+
+[node name="overscreen" type="Control" parent="AllUI/UI" unique_id=515696208]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Black" type="Sprite2D" parent="AllUI/UI/overscreen" unique_id=1516672483]
+self_modulate = Color(1, 1, 1, 0.59607846)
+scale = Vector2(15.1776, 17.777454)
+texture = ExtResource("5_kdqer")
+
+[node name="Label" type="Label" parent="AllUI/UI/overscreen" unique_id=1304202460]
+layout_mode = 0
+offset_left = -296.00003
+offset_top = -64.0
+offset_right = 242.99997
+offset_bottom = 46.0
+scale = Vector2(1.0999424, 1.0468293)
+theme_override_fonts/font = ExtResource("6_kne2b")
+theme_override_font_sizes/font_size = 125
+text = "YOU DIED"
+
+[node name="wordholder" type="Control" parent="AllUI/UI" unique_id=1080562207]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="gamewon" type="Label" parent="AllUI/UI/wordholder" unique_id=441718982]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -39.5
+offset_right = 245.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "YOU PASSED"
+label_settings = SubResource("LabelSettings_5b86v")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

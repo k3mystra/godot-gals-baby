@@ -5,5 +5,20 @@
 
 [node name="Main" unique_id=294610226 instance=ExtResource("1_pp3gk")]
 
-[node name="Planet3" parent="." index="1" unique_id=730577519 instance=ExtResource("2_u6f3h")]
-position = Vector2(640, 312)
+[node name="Planet" parent="." index="0" unique_id=730577519]
+position = Vector2(-273, 125)
+
+[node name="Planet3" parent="." index="1" unique_id=883539555 instance=ExtResource("2_u6f3h")]
+position = Vector2(40, 11)
+
+[node name="Rocket" parent="." index="2" unique_id=384636652]
+position = Vector2(-280, -128)
+
+[node name="Planet2" parent="." index="3" unique_id=994631653]
+position = Vector2(310, 119)
+
+[node name="Goal" parent="." index="4" unique_id=586600952]
+position = Vector2(8, 187)
+
+[node name="Camera2D" parent="." index="5" unique_id=1573105880]
+position = Vector2(0, 0)
