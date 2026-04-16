@@ -2,13 +2,142 @@
 
 [ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="1_i0la0"]
 [ext_resource type="Script" uid="uid://1vnnjof384fp" path="res://rocket/rocket.gd" id="1_vaqdw"]
+[ext_resource type="Texture2D" uid="uid://b7xlgephf2kkl" path="res://rocket/Animated_Exhaust_pixel_Pack_Free/Exhaust_03/exhaust_03_spritesheet.png" id="3_c7012"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
 radius = 15.0
 height = 52.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxqvl"]
+atlas = ExtResource("3_c7012")
+region = Rect2(0, 0, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8yy8"]
+atlas = ExtResource("3_c7012")
+region = Rect2(128, 0, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwpda"]
+atlas = ExtResource("3_c7012")
+region = Rect2(256, 0, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smobc"]
+atlas = ExtResource("3_c7012")
+region = Rect2(384, 0, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjrg1"]
+atlas = ExtResource("3_c7012")
+region = Rect2(512, 0, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbdcq"]
+atlas = ExtResource("3_c7012")
+region = Rect2(0, 200, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_132wp"]
+atlas = ExtResource("3_c7012")
+region = Rect2(128, 200, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bykrb"]
+atlas = ExtResource("3_c7012")
+region = Rect2(256, 200, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2e4j"]
+atlas = ExtResource("3_c7012")
+region = Rect2(384, 200, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct86t"]
+atlas = ExtResource("3_c7012")
+region = Rect2(512, 200, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urb85"]
+atlas = ExtResource("3_c7012")
+region = Rect2(0, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypd8e"]
+atlas = ExtResource("3_c7012")
+region = Rect2(128, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lco65"]
+atlas = ExtResource("3_c7012")
+region = Rect2(256, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd4go"]
+atlas = ExtResource("3_c7012")
+region = Rect2(384, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyk80"]
+atlas = ExtResource("3_c7012")
+region = Rect2(512, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapgm"]
+atlas = ExtResource("3_c7012")
+region = Rect2(640, 400, 128, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa614"]
+atlas = ExtResource("3_c7012")
+region = Rect2(768, 400, 128, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pfuj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxqvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8yy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwpda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smobc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjrg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbdcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_132wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bykrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2e4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct86t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urb85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypd8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lco65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd4go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyk80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa614")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
+
 [node name="Rocket" type="RigidBody2D" unique_id=384636652 groups=["rocket"]]
-position = Vector2(65, 128)
+linear_damp = 0.35
+angular_damp = 0.35
 script = ExtResource("1_vaqdw")
 metadata/_edit_group_ = true
 
@@ -20,3 +149,12 @@ shape = SubResource("CapsuleShape2D_vaqdw")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283426119]
 rotation = 1.5707964
 texture = ExtResource("1_i0la0")
+
+[node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=75350880]
+visible = false
+position = Vector2(-52, 0)
+rotation = 1.5707964
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_3pfuj")
+frame = 16
+frame_progress = 1.0
