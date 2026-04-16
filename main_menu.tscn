@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
-[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="2_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://bidrmjjoqp4p7" path="res://Levels/test_level_1.tscn" id="3_qe12f"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
@@ -12,7 +11,7 @@ load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ct
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("2_nlkkf"), ExtResource("3_qe12f")])
+levels = Array[PackedScene]([ExtResource("3_qe12f")])
 
 [node name="detail" type="Node2D" parent="." unique_id=1682257288]
 
