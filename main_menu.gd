@@ -14,12 +14,6 @@ var clock = 0.0
 var dir = 1.0
 var timer = 1.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	clock += delta * 2
 	playbutton.position.y = sin(clock * frequency) * amplitude
@@ -35,7 +29,6 @@ func _process(delta: float) -> void:
 		stars.global_position = spawner.global_position
 		get_parent().add_child(stars)
 
-
 func _turn_anim():
 	if playbutton.position.x < 0:
 		dir = 0.03
@@ -43,6 +36,8 @@ func _turn_anim():
 		dir = -0.03
 	playbutton.rotation_degrees = clamp(playbutton.rotation_degrees + dir, -angleLimit, angleLimit)
 
-
 func _on_playbutton_pressed() -> void:
 	pass # Replace with function body.
+
+func _on_quitbutton_pressed() -> void:
+	get_tree().quit()

@@ -27,14 +27,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control" unique_id=251931327]
-layout_mode = 0
-offset_left = -176.0
-offset_top = -144.0
-offset_right = 26.0
-offset_bottom = -121.0
+layout_mode = 1
+offset_left = -199.99997
+offset_top = -72.0
+offset_right = 2.0000305
+offset_bottom = -37.0
 scale = Vector2(2.0888631, 2.0888631)
 theme_override_fonts/font = ExtResource("1_06t4h")
 text = "LOST ROCKET"
+horizontal_alignment = 1
 
 [node name="playholder" type="Node2D" parent="Control" unique_id=1530577382]
 position = Vector2(0, 16)
@@ -71,3 +72,4 @@ scale = Vector2(0.6013535, 0.6013535)
 texture = ExtResource("3_fu7sn")
 
 [connection signal="pressed" from="Control/playholder/playbutton" to="Control" method="_on_playbutton_pressed"]
+[connection signal="pressed" from="Control/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]

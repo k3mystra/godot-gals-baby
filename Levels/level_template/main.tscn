@@ -7,17 +7,16 @@
 [node name="Main" type="Node2D" unique_id=294610226]
 
 [node name="Planet" parent="." unique_id=730577519 instance=ExtResource("1_ig7tw")]
-position = Vector2(327, 426)
+position = Vector2(-330, 224)
 
 [node name="Rocket" parent="." unique_id=384636652 instance=ExtResource("2_0xm2m")]
-position = Vector2(320, 173)
+position = Vector2(-289, -139)
 
 [node name="Planet2" parent="." unique_id=994631653 instance=ExtResource("1_ig7tw")]
-position = Vector2(910, 420)
+position = Vector2(301, 108)
 mass = 12.0
 
 [node name="Goal" parent="." unique_id=586600952 instance=ExtResource("3_c0c11")]
-position = Vector2(608, 488)
+position = Vector2(70, 157)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573105880]
-position = Vector2(578, 321)

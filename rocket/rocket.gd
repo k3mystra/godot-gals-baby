@@ -6,6 +6,7 @@ var is_thrusting: bool = false
 var exhaust : Exhaust
 @export var explosion : PackedScene
 
+
 enum State {
 	READY,
 	IS_LAUNCHED,
@@ -68,3 +69,4 @@ func _on_body_entered(body: Node2D) -> void:
 	new_explosion.global_position = global_position + explosion_position
 	new_explosion.play("3")
 	hide()
+	GlobalSignal.dead.emit()
