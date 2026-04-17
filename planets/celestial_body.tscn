@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://gaoonmhv48u7"]
+
+[ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/celestial_body.gd" id="1_3xtoy"]
+[ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://planets/earth_spriteframes.tres" id="2_5pkp4"]
+[ext_resource type="SpriteFrames" uid="uid://c1mpbkrlcieoi" path="res://planets/lava-planet_spriteframes.tres" id="3_1r3ry"]
+[ext_resource type="SpriteFrames" uid="uid://4wfrnsjn57wx" path="res://planets/islands-planet_spriteframes.tres" id="4_cdyd4"]
+[ext_resource type="SpriteFrames" uid="uid://btxcaq0jcym27" path="res://planets/gassy-planet_spriteframes.tres" id="5_1gs45"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0coog"]
+bounce = 0.5
+
+[node name="Body" type="StaticBody2D" unique_id=730577519]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_0coog")
+script = ExtResource("1_3xtoy")
+gravity_constant = 5000.0
+planet_anims = Array[SpriteFrames]([ExtResource("2_5pkp4"), ExtResource("3_1r3ry"), ExtResource("4_cdyd4"), ExtResource("5_1gs45")])
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

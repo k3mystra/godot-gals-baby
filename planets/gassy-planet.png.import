@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://smyjdaoy2x5g"
-path="res://.godot/imported/522517374.png-598b4af857b3bebe6d36bd7da308a68c.ctex"
+uid="uid://btlsuhvjdkao7"
+path="res://.godot/imported/gassy-planet.png-7d3be7bef3fcbb236354a161a7e53d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planets/522517374.png"
-dest_files=["res://.godot/imported/522517374.png-598b4af857b3bebe6d36bd7da308a68c.ctex"]
+source_file="res://planets/gassy-planet.png"
+dest_files=["res://.godot/imported/gassy-planet.png-7d3be7bef3fcbb236354a161a7e53d54.ctex"]
 
 [params]
 
