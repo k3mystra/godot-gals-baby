@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
 radius = 47.0
 
-[node name="Planet" unique_id=730577519 instance=ExtResource("1_xgwrp")]
+[node name="Planet" unique_id=730577519 groups=["planet"] instance=ExtResource("1_xgwrp")]
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1487429824]
 sprite_frames = ExtResource("6_1fdfk")
