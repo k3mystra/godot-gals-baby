@@ -6,8 +6,10 @@ signal goal_reached
 
 signal dead
 
+signal start_level
+
 signal change_level
 
-signal remove_current_rocket
+signal restart_level
 
 signal print_rocket_amount

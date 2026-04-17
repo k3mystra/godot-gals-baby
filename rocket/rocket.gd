@@ -62,7 +62,7 @@ func _physics_process(_delta):
 
 func stop_gameplay():
 	set_deferred("freeze", true) 
-	
+	thrusterloop.stop()
 	# Do the same for anything else that messes with physics state
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
