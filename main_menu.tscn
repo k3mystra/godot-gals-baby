@@ -5,12 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_2.tscn" id="3_nlkkf"]
 [ext_resource type="PackedScene" uid="uid://bidrmjjoqp4p7" path="res://Levels/test_level_1.tscn" id="3_qe12f"]
+[ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_3.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
+[ext_resource type="PackedScene" uid="uid://cupu545aqwulr" path="res://Levels/level_4.tscn" id="5_0k4wn"]
 [ext_resource type="Script" uid="uid://civ35i4t7kacj" path="res://all_ui.gd" id="7_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fu7sn"]
-load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_0o4t1"]
 font = ExtResource("4_jix8l")
@@ -18,11 +17,11 @@ font_size = 90
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("3_qe12f"), ExtResource("3_nlkkf")])
+levels = Array[PackedScene]([ExtResource("3_qe12f"), ExtResource("3_nlkkf"), ExtResource("4_0o4t1"), ExtResource("5_0k4wn")])
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
-scale = Vector2(37.91938, 25.506638)
-texture = SubResource("CompressedTexture2D_fu7sn")
+scale = Vector2(181.59915, 122.153465)
+texture = ExtResource("8_dy7ct")
 
 [node name="details" type="Node2D" parent="." unique_id=920578416]
 
