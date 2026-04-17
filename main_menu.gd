@@ -85,14 +85,14 @@ func _turn_anim():
 		dir = -0.03
 	playbutton.rotation_degrees = clamp(playbutton.rotation_degrees + dir, -angleLimit, angleLimit)
 
-func _on_playbutton_pressed() -> void:
+func _on_playbutton_button_up() -> void:
 	main.hide()
 	select.show()
 	var randSound = randi_range(0, 1)
 	match randSound:
 		0: play_sound(click1, 1)
 		1: play_sound(click2, 1)
-
+	
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
 
