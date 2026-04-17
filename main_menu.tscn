@@ -39,7 +39,6 @@ texture = ExtResource("3_fu7sn")
 zoom = Vector2(1.5, 1.5)
 
 [node name="main" type="Control" parent="." unique_id=425663841]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

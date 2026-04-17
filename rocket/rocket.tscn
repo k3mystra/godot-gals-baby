@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://edyytby3mpe1" path="res://rocket/exhaust.gd" id="4_gxqvl"]
 [ext_resource type="PackedScene" uid="uid://dyeg6t3ohjg4t" path="res://rocket/explosion.tscn" id="5_q8yy8"]
 [ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="5_smobc"]
+[ext_resource type="AudioStream" uid="uid://dkpx8o7drwxep" path="res://sounds/thrusters.ogg" id="6_iwpda"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
 radius = 7.0
@@ -361,5 +362,8 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_3pfuj")
 animation = &"vroom vroom"
 script = ExtResource("4_gxqvl")
+
+[node name="thrusterloop" type="AudioStreamPlayer2D" parent="." unique_id=2119892153]
+stream = ExtResource("6_iwpda")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
