@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://gp3lvijl8k63"
+path="res://.godot/imported/Restart2_BitMap.png-3f109ebd668e1ddc6283636d26683e38.res"
+
+[deps]
+
+source_file="res://assets/Restart2_BitMap.png"
+dest_files=["res://.godot/imported/Restart2_BitMap.png-3f109ebd668e1ddc6283636d26683e38.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

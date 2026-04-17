@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dfvo6oxcewtu1"]
+
+[ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="1_53mfy"]
+[ext_resource type="Script" uid="uid://doqx0j25o8alg" path="res://UI/next_level_button.gd" id="1_uh0qw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_53mfy"]
+font = ExtResource("1_53mfy")
+
+[node name="NextLevelButton" type="Control" unique_id=271405502]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3, 3)
+script = ExtResource("1_uh0qw")
+
+[node name="Label" type="Label" parent="." unique_id=473470913]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -7.0
+offset_right = 43.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Level ?"
+label_settings = SubResource("LabelSettings_53mfy")
+
+[node name="Button" type="Button" parent="." unique_id=1272748118]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -11.0
+offset_right = 47.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_53mfy")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

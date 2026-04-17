@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cfm5sre5d53jv"]
+
+[ext_resource type="Script" uid="uid://b5g46ol1joieo" path="res://UI/menu_button.gd" id="1_3uicj"]
+[ext_resource type="Texture2D" uid="uid://cw34a0nulnn2k" path="res://assets/HomeButtonLight.png" id="2_qoeyi"]
+[ext_resource type="Texture2D" uid="uid://bkdncy5f41yqg" path="res://assets/HomeButtonDark.png" id="3_my8uw"]
+
+[node name="MenuButton" type="Control" unique_id=303648804]
+layout_mode = 3
+anchor_right = 0.062000003
+anchor_bottom = 0.113000005
+offset_right = 0.95999146
+offset_bottom = -0.040008545
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+script = ExtResource("1_3uicj")
+
+[node name="Button" type="TextureButton" parent="." unique_id=1898881636]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.133
+anchor_bottom = 0.13100001
+offset_right = -120.522224
+offset_bottom = -113.98401
+texture_normal = ExtResource("2_qoeyi")
+texture_pressed = ExtResource("3_my8uw")
+texture_hover = ExtResource("3_my8uw")
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

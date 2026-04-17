@@ -3,21 +3,23 @@
 [ext_resource type="Script" uid="uid://dskwj2utxijfl" path="res://pause_button.gd" id="1_06gq4"]
 [ext_resource type="Texture2D" uid="uid://qblq67auu4ek" path="res://assets/PauseButton.png" id="2_subwi"]
 [ext_resource type="Texture2D" uid="uid://bw7fembuuyas6" path="res://assets/PauseButton2.png" id="3_2p08k"]
-[ext_resource type="BitMap" uid="uid://btdgqsnbbnk76" path="res://assets/play_button2_bit_map.png" id="4_v1vfj"]
 [ext_resource type="Texture2D" uid="uid://cwsqb4d874efo" path="res://assets/PlayButton.png" id="5_m6xmw"]
 [ext_resource type="Texture2D" uid="uid://b3pa7vi8wfej2" path="res://assets/play_button2.png" id="6_5y7o2"]
 
 [node name="PlayAndPauseButton" type="Control" unique_id=1887568373]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = -0.033
+anchor_top = -0.059000004
+anchor_right = 0.033
+anchor_bottom = 0.059000004
+offset_left = -0.6399994
+offset_top = -0.27999496
+offset_right = -111.36
+offset_bottom = -111.72
+scale = Vector2(8, 8)
 script = ExtResource("1_06gq4")
+metadata/_edit_group_ = true
 
 [node name="PauseButton" type="TextureButton" parent="." unique_id=18955023]
 layout_mode = 1
@@ -32,10 +34,9 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-toggle_mode = true
 texture_normal = ExtResource("2_subwi")
 texture_pressed = ExtResource("3_2p08k")
-texture_click_mask = ExtResource("4_v1vfj")
+texture_hover = ExtResource("3_2p08k")
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=1286113665]
 layout_mode = 1
@@ -52,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_m6xmw")
 texture_pressed = ExtResource("6_5y7o2")
-texture_click_mask = ExtResource("4_v1vfj")
+texture_hover = ExtResource("6_5y7o2")
 
 [connection signal="button_up" from="PauseButton" to="." method="_on_pause_button_button_up"]
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
