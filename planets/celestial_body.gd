@@ -22,6 +22,7 @@ func _ready() -> void:
 	update_mass_label()
 	deactivate_everything()
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
+	$AnimatedSprite.play("default")
 
 #This is for debug why rocket doesnt work when loading new level
 func print_rocekt_amount():

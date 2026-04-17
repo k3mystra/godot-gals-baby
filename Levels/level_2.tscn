@@ -9,3 +9,14 @@ position = Vector2(-495, 0)
 
 [node name="Goal" parent="." index="1" unique_id=586600952]
 position = Vector2(480, 0)
+
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Planet" parent="." index="4" unique_id=277605065]
+position = Vector2(-6.1035156e-05, 180)
+scale = Vector2(0.4557231, 0.4557231)
+mass = 3.0
+
+[node name="Planet2" parent="." index="5" unique_id=1841039985]
+position = Vector2(0, -176)
