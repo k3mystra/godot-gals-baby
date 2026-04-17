@@ -3,10 +3,10 @@
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
-[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_1.tscn" id="3_nlkkf"]
-[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_2.tscn" id="4_0o4t1"]
+[ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_2.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
 [ext_resource type="Script" uid="uid://civ35i4t7kacj" path="res://all_ui.gd" id="7_8qtwp"]
+[ext_resource type="PackedScene" uid="uid://ddh5dcqwvuycq" path="res://UI/play_and_pause_button.tscn" id="7_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dy7ct"]
@@ -23,7 +23,7 @@ font_size = 30
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("3_nlkkf"), ExtResource("4_0o4t1")])
+levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("4_0o4t1")])
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
 scale = Vector2(181.59915, 122.153465)
@@ -41,7 +41,6 @@ scale = Vector2(1.5829271, 1.5829271)
 texture = ExtResource("3_fu7sn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
-zoom = Vector2(1.5, 1.5)
 
 [node name="main" type="Control" parent="." unique_id=425663841]
 layout_mode = 3
@@ -176,6 +175,9 @@ text = "LEVEL 10
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=397011199]
 
+[node name="PlayAndPauseButton" parent="." unique_id=1887568373 instance=ExtResource("7_dy7ct")]
+position = Vector2(-575.99994, -303.99997)
+
 [node name="AllUI" type="Node2D" parent="." unique_id=1023732795]
 script = ExtResource("7_8qtwp")
 
@@ -272,18 +274,17 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -762.0
-offset_right = -17.0
-offset_bottom = -722.0
+offset_left = -552.0
+offset_top = -768.0
+offset_right = -512.0
+offset_bottom = -728.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="AllUI/UI/PressSpaceToThrust" unique_id=894108811]
 layout_mode = 0
-offset_left = 401.0
-offset_top = 2.0
-offset_right = 683.0
-offset_bottom = 29.0
+offset_left = -63.0
+offset_right = 219.0
+offset_bottom = 27.0
 text = "Press Space to Thrust"
 label_settings = SubResource("LabelSettings_8qtwp")
 
