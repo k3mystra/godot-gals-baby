@@ -1,28 +1,15 @@
-[gd_scene format=3 uid="uid://bxs4rq1d3ert7"]
+[gd_scene format=3 uid="uid://docet4h6n0wvr"]
 
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_2.tscn" id="3_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
-[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_1.tscn" id="4_0o4t1"]
+[ext_resource type="PackedScene" uid="uid://cxi4ioryujfiv" path="res://Levels/level_1.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://3h3dt8fm2t4h" path="res://assets/play.png" id="6_0k4wn"]
-[ext_resource type="Script" uid="uid://civ35i4t7kacj" path="res://all_ui.gd" id="7_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://br8ctcgrg6174" path="res://assets/playdark.png" id="7_j5v2v"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 [ext_resource type="BitMap" uid="uid://dmwxcn2twvs0m" path="res://assets/play1.png" id="8_iotk1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dy7ct"]
-font = ExtResource("4_jix8l")
-font_size = 39
-
-[sub_resource type="LabelSettings" id="LabelSettings_0o4t1"]
-font = ExtResource("4_jix8l")
-font_size = 90
-
-[sub_resource type="LabelSettings" id="LabelSettings_8qtwp"]
-font = ExtResource("4_jix8l")
-font_size = 30
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
@@ -185,137 +172,6 @@ text = "LEVEL 10
 "
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=397011199]
-
-[node name="AllUI" type="Node2D" parent="." unique_id=1954653638]
-script = ExtResource("7_8qtwp")
-
-[node name="UI" type="CanvasLayer" parent="AllUI" unique_id=1276948122]
-follow_viewport_enabled = true
-
-[node name="overscreen" type="Control" parent="AllUI/UI" unique_id=2041481553]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_right = -1400.0
-offset_bottom = -904.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Black" type="Sprite2D" parent="AllUI/UI/overscreen" unique_id=1794896180]
-self_modulate = Color(1, 1, 1, 0.59607846)
-position = Vector2(-5.159195, -3.5)
-scale = Vector2(14.937638, 4.2727275)
-texture = ExtResource("8_dy7ct")
-
-[node name="Label" type="Label" parent="AllUI/UI/overscreen" unique_id=539023354]
-layout_mode = 0
-offset_left = -296.00003
-offset_top = -64.0
-offset_right = 242.99997
-offset_bottom = 46.0
-scale = Vector2(1.0999424, 1.0468293)
-theme_override_fonts/font = ExtResource("4_jix8l")
-theme_override_font_sizes/font_size = 125
-text = "YOU DIED"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="AllUI/UI/overscreen" unique_id=824654237]
-layout_mode = 0
-offset_left = -160.0
-offset_top = 80.0
-offset_right = 155.0
-offset_bottom = 115.0
-text = "Press R to Restart"
-label_settings = SubResource("LabelSettings_dy7ct")
-metadata/_edit_use_anchors_ = true
-
-[node name="wordholder" type="Control" parent="AllUI/UI" unique_id=381409728]
-visible = false
-layout_mode = 3
-anchor_right = 0.25833333
-anchor_bottom = 0.096296296
-offset_left = -256.0
-offset_top = -48.0
-offset_right = -256.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="gamewon" type="Label" parent="AllUI/UI/wordholder" unique_id=434314071]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -245.0
-offset_top = -39.5
-offset_right = 245.0
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "YOU PASSED"
-label_settings = SubResource("LabelSettings_0o4t1")
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="PressEnterToStart" type="Control" parent="AllUI/UI" unique_id=1130862958]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 528.0
-offset_top = 248.0
-offset_right = -1248.0
-offset_bottom = -784.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="AllUI/UI/PressEnterToStart" unique_id=1285733956]
-layout_mode = 0
-offset_left = -168.0
-offset_right = 233.0
-offset_bottom = 27.0
-text = "Press Enter to Start"
-label_settings = SubResource("LabelSettings_8qtwp")
-metadata/_edit_use_anchors_ = true
-
-[node name="Black" type="Sprite2D" parent="AllUI/UI/PressEnterToStart/Label" unique_id=1656874023]
-self_modulate = Color(1, 1, 1, 0.59607846)
-z_index = -2
-position = Vector2(131, 14.499998)
-scale = Vector2(6.4651165, 2.0303028)
-texture = ExtResource("8_dy7ct")
-
-[node name="PressSpaceToThrust" type="Control" parent="AllUI/UI" unique_id=1760143419]
-layout_mode = 3
-anchor_left = 0.18716668
-anchor_top = 0.19981481
-anchor_right = -0.12516664
-anchor_bottom = -0.17037037
-offset_left = 136.63998
-offset_top = 88.2
-offset_right = 768.31995
-offset_bottom = 504.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="AllUI/UI/PressSpaceToThrust" unique_id=1832917217]
-layout_mode = 0
-offset_left = -144.0
-offset_top = 2.0
-offset_right = 138.0
-offset_bottom = 29.0
-text = "Press Space to Thrust"
-label_settings = SubResource("LabelSettings_8qtwp")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="main/playholder/playbutton" to="." method="_on_playbutton_button_up"]
 [connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]
