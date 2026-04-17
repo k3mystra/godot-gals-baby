@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsi0t7ap3skx7"]
+
+[ext_resource type="Script" uid="uid://cr1xscp38j6lo" path="res://buddy.gd" id="1_hprr6"]
+
+[node name="Buddy" type="Label" unique_id=471245187]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+script = ExtResource("1_hprr6")
+
+[node name="RandomizerTimer" type="Timer" parent="." unique_id=817302185]
+autostart = true
+
+[node name="CloseDialogTimer" type="Timer" parent="." unique_id=1742645528]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="RandomizerTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CloseDialogTimer" to="." method="_on_close_dialog_timer_timeout"]

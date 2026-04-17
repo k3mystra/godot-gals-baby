@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="2_2v0s2"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="3_ek1vm"]
 [ext_resource type="PackedScene" uid="uid://ddh5dcqwvuycq" path="res://UI/play_and_pause_button.tscn" id="4_2v0s2"]
+[ext_resource type="PackedScene" uid="uid://dsi0t7ap3skx7" path="res://buddy.tscn" id="5_ek1vm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6g6po"]
 font = ExtResource("3_ek1vm")
@@ -158,3 +159,10 @@ offset_bottom = 60.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(7.442056, 7.442056)
+
+[node name="Buddy" parent="." unique_id=471245187 instance=ExtResource("5_ek1vm")]
+offset_left = 1613.0
+offset_top = 970.0
+offset_right = 1919.0
+offset_bottom = 1082.0
+text = "asdfasdf"
