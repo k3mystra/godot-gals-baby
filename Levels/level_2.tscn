@@ -17,11 +17,14 @@ position = Vector2(960, 544)
 [node name="Planet2" parent="." index="3" unique_id=730577519 instance=ExtResource("2_5lru4")]
 position = Vector2(488, 232.00003)
 scale = Vector2(3.4014537, 3.4014537)
+mass = 25.0
 
 [node name="Planet3" parent="." index="4" unique_id=1295504530 instance=ExtResource("2_5lru4")]
 position = Vector2(1768, 144)
 scale = Vector2(1.8321713, 1.8321713)
+mass = 5.0
 
 [node name="Planet4" parent="." index="5" unique_id=625905535 instance=ExtResource("2_5lru4")]
 position = Vector2(1408, 816)
 scale = Vector2(3.7298074, 3.7298074)
+mass = 35.0
