@@ -22,6 +22,7 @@ func deactivate_everything():
 func activate_everything():
 	set_process_input(true)
 	set_physics_process(true)
+	var rockets: Array[Node] = get_tree().get_nodes_in_group(rocket_group)
 
 func _physics_process(_delta: float) -> void:
 	for rocket in rockets:

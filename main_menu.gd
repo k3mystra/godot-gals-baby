@@ -31,6 +31,7 @@ var active_level_node: Node = null
 func _ready() -> void:
 	main.show()
 	select.hide()
+	GlobalSignal.change_level.connect(_on_level_complete)
 	for button in select.get_children():
 		if button is Button:
 			button.pressed.connect(_onLevelButtonPressed.bind(button.name))

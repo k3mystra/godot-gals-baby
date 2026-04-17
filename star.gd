@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var speed : float
-@onready var enable = $VisibleOnScreenEnabler2D
 var allowDel := false
 var randscale = 0.0
 

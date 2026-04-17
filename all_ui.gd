@@ -12,9 +12,6 @@ func _ready() -> void:
 	GlobalSignal.dead.connect(deadscreen)
 	GlobalSignal.goal_reached.connect(winscreen)
 
-func _input(event: InputEvent) -> void:
-	pass
-
 func deadscreen():
 	gameover.show()
 	var tween = create_tween()
@@ -22,3 +19,6 @@ func deadscreen():
 
 func winscreen():
 	endscreen.show()
+	await get_tree().create_timer(2).timeout
+	GlobalSignal.emit_signal("change_level")
+	endscreen.hide()
