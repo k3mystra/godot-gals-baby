@@ -28,6 +28,10 @@ var active_level_node: Node = null
 
 @onready var level_container = $CurrentLevel
 
+#PRELOAD SOUNDS HERE
+var click1 = preload("res://sounds/button1.ogg")
+var click2 = preload("res://sounds/button2.ogg")
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_R and event.is_released():
@@ -36,7 +40,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_0 and event.is_released():
 			GlobalSignal.print_rocket_amount.emit()
-			
+
+
 func _ready() -> void:
 	main.show()
 	select.hide()
@@ -71,6 +76,10 @@ func _turn_anim():
 func _on_playbutton_pressed() -> void:
 	main.hide()
 	select.show()
+	var randSound = randi_range(0, 1)
+	match randSound:
+		0: play_sound(click1, 1)
+		1: play_sound(click2, 1)
 
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
@@ -112,3 +121,11 @@ func _on_level_complete():
 func _title_move(clock: float):
 	lost.position.y = cos(clock * frequency/2) * amplitude
 	crocket.position.y = cos(clock * frequency) * amplitude
+
+func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PASTE THIS
+	var p = AudioStreamPlayer2D.new() # make new audioplayer
+	p.stream = stream
+	p.pitch_scale = pitch
+	add_child(p) # adds to the world
+	p.play() # play first
+	p.finished.connect(p.queue_free) # remove itself after finished playing

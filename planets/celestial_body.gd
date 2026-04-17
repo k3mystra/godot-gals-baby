@@ -5,6 +5,9 @@ extends StaticBody2D
 
 @export var mass: float = 10
 @export var gravity_constant: float = 9
+@export var is_mass_adjustable: bool = true
+
+@export var planet_anims: Array[SpriteFrames]
 
 var previous_mouse_position: Vector2
 var is_dragging: bool = false
@@ -18,6 +21,7 @@ func _ready() -> void:
 	
 	update_mass_label()
 	deactivate_everything()
+	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
 
 #This is for debug why rocket doesnt work when loading new level
 func print_rocekt_amount():
@@ -31,7 +35,7 @@ func clear_rocket():
 func deactivate_everything():
 	set_process_input(false)
 	set_physics_process(false)
-	
+
 func activate_everything():
 	set_process_input(true)
 	set_physics_process(true)
@@ -60,6 +64,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func _input(event: InputEvent) -> void:
+	if not is_mass_adjustable:
+		return
+
 	if not is_dragging:
 		return
 
@@ -78,4 +85,5 @@ func _input(event: InputEvent) -> void:
 			print(rockets.size())
 
 func update_mass_label() -> void:
-	$Label.text = "%.2f" % mass
+	if is_mass_adjustable:
+		$Label.text = "%.2f" % mass
