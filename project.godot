@@ -39,6 +39,7 @@ folder_colors={
 [global_group]
 
 rocket="Rockets"
+planet="Planets"
 
 [input]
 
