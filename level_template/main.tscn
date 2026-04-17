@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dbd6pq7m14mx7" path="res://rocket/rocket.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dlwkisfq7cde7" path="res://planets/black-hole.tscn" id="3_3fu36"]
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="3_c0c11"]
 
 [node name="Main" type="Node2D" unique_id=294610226]
@@ -14,16 +13,6 @@ position = Vector2(320, 173)
 position = Vector2(608, 488)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573105880]
-position = Vector2(472, 467)
-
-[node name="BlackHole" parent="." unique_id=730577519 instance=ExtResource("3_3fu36")]
-position = Vector2(-260, 781)
 
 [node name="Planet" parent="." unique_id=277605065 instance=ExtResource("1_ig7tw")]
 position = Vector2(-162, 414)
-
-[node name="Planet2" parent="." unique_id=1841039985 instance=ExtResource("1_ig7tw")]
-position = Vector2(1003, 773)
-
-[node name="Planet3" parent="." unique_id=1362939525 instance=ExtResource("1_ig7tw")]
-position = Vector2(1075, 174)

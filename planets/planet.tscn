@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
 [ext_resource type="PackedScene" uid="uid://gaoonmhv48u7" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
-[ext_resource type="SpriteFrames" uid="uid://qat0iqabkm03" path="res://planets/dry-planet_spriteframes.tres" id="6_1fdfk"]
+[ext_resource type="SpriteFrames" path="res://planets/dry-planet_spriteframes.tres" id="6_1fdfk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
 radius = 47.0
@@ -10,6 +10,8 @@ radius = 47.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1487429824]
 sprite_frames = ExtResource("6_1fdfk")
+frame = 30
+frame_progress = 0.27794573
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." index="1" unique_id=1216801021]
 shape = SubResource("CircleShape2D_0coog")
