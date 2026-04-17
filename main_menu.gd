@@ -28,6 +28,15 @@ var active_level_node: Node = null
 
 @onready var level_container = $CurrentLevel
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_R and event.is_released():
+			load_level(current_level_index)
+			
+	if event is InputEventKey:
+		if event.keycode == KEY_0 and event.is_released():
+			GlobalSignal.print_rocket_amount.emit()
+			
 func _ready() -> void:
 	main.show()
 	select.hide()
@@ -79,6 +88,7 @@ func _onLevelButtonPressed(level_name: String):
 
 func load_level(index: int):
 	# 1. Clean up the old level
+	GlobalSignal.remove_current_rocket.emit()
 	if active_level_node:
 		active_level_node.queue_free()
 	
