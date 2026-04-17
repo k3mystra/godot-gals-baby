@@ -41,12 +41,16 @@ enum GameState {
 	LOSE
 }
 
+func call_restart():
+	if current_state == GameState.IN_LEVEL:
+		GlobalSignal.restart_level.emit()
+		load_level(current_level_index)	
+
 func _input(event: InputEvent) -> void:
 	if current_state == GameState.IN_LEVEL:
 		if event is InputEventKey:
 			if event.keycode == KEY_R and event.is_released():
-				GlobalSignal.restart_level.emit()
-				load_level(current_level_index)
+				call_restart()
 	
 	#for debugging reason
 	#if event is InputEventKey:
@@ -58,6 +62,8 @@ func _ready() -> void:
 	main.show()
 	select.hide()
 	GlobalSignal.change_level.connect(_on_level_complete)
+	GlobalSignal.return_to_main_menu.connect(return_main_menu)
+	GlobalSignal.call_restart.connect(call_restart)
 	for button in select.get_children():
 		if button is Button:
 			button.pressed.connect(_onLevelButtonPressed.bind(button.name))
@@ -129,6 +135,7 @@ func _on_level_complete():
 		call_deferred("load_level", current_level_index)
 	else:
 		print("You win the whole game!")
+		current_state = GameState.WIN
 
 func _title_move(clock: float):
 	lost.position.y = cos(clock * frequency/2) * amplitude
@@ -141,3 +148,14 @@ func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PAS
 	add_child(p) # adds to the world
 	p.play() # play first
 	p.finished.connect(p.queue_free) # remove itself after finished playing
+	
+func return_main_menu():
+	if active_level_node:
+		active_level_node.queue_free()
+	
+	current_state = GameState.IN_MENU
+	spawn_star = true
+	details.show()
+	camera.enabled = true
+	main.show()
+	select.hide()

@@ -39,9 +39,10 @@ func lift_off():
 
 func _input(event):
 	if current_state == State.READY:
-		if event.is_action_pressed("ENTER_KEY"):
-			lift_off()
-			current_state = State.IS_LAUNCHED
+		if event is InputEventKey:
+			if event.keycode == KEY_F and event.is_released():
+				lift_off()
+				current_state = State.IS_LAUNCHED
 	if current_state == State.IS_LAUNCHED:
 		if event.is_action_pressed("SPACEBAR_KEY"):
 			is_thrusting = true
