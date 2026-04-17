@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @export var rocket_group: String = "rocket"
-@onready var rockets: Array[Node] 
+@onready var rockets: Array[Node]
 
 @export var mass: float = 10
 @export var gravity_constant: float = 9
@@ -18,7 +18,7 @@ func _ready() -> void:
 	GlobalSignal.goal_reached.connect(deactivate_everything)
 	#GlobalSignal.remove_current_rocket.connect(clear_rocket)
 	GlobalSignal.print_rocket_amount.connect(print_rocekt_amount)
-	
+
 	update_mass_label()
 	deactivate_everything()
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
@@ -42,7 +42,7 @@ func activate_everything():
 
 func _physics_process(_delta: float) -> void:
 
-	#This is a very ugly solution, for some reason, the old rocket will always be there even if I tried to clear the array. 
+	#This is a very ugly solution, for some reason, the old rocket will always be there even if I tried to clear the array.
 	#But if it works, it works
 	var target_rocket
 	if rockets.size() == 1:
