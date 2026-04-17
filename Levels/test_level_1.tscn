@@ -4,17 +4,17 @@
 
 [node name="Main" unique_id=294610226 instance=ExtResource("1_pp3gk")]
 
-[node name="Planet" parent="." index="0" unique_id=730577519]
-position = Vector2(-192, 128)
-
-[node name="Rocket" parent="." index="1" unique_id=384636652]
+[node name="Rocket" parent="." index="0" unique_id=384636652]
 position = Vector2(-280, -128)
 
-[node name="Planet2" parent="." index="2" unique_id=994631653]
-position = Vector2(280, -88)
-
-[node name="Goal" parent="." index="3" unique_id=586600952]
+[node name="Goal" parent="." index="1" unique_id=586600952]
 position = Vector2(88, 168)
 
-[node name="Camera2D" parent="." index="4" unique_id=1573105880]
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
 zoom = Vector2(1.5, 1.5)
+
+[node name="Planet" parent="." index="4" unique_id=277605065]
+position = Vector2(-192, 128)
+
+[node name="Planet2" parent="." index="5" unique_id=1841039985]
+position = Vector2(280, -88)
