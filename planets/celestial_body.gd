@@ -18,6 +18,7 @@ func _ready() -> void:
 	update_mass_label()
 	deactivate_everything()
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
+	$AnimatedSprite.play("default")
 
 func deactivate_everything():
 	set_process_input(false)
