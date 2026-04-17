@@ -14,11 +14,11 @@ position = Vector2(415, 228)
 [node name="Camera2D" parent="." index="2" unique_id=1573105880]
 zoom = Vector2(1.5, 1.5)
 
-[node name="Planet" parent="." index="3" unique_id=730577519 instance=ExtResource("2_pp3gk")]
+[node name="Planet2" parent="." index="3" unique_id=730577519 instance=ExtResource("2_pp3gk")]
 position = Vector2(-246.99998, 169)
 scale = Vector2(3.3052747, 3.3052747)
 mass = 20.0
 
-[node name="Planet2" parent="." index="4" unique_id=932908210 instance=ExtResource("2_pp3gk")]
+[node name="Planet3" parent="." index="4" unique_id=932908210 instance=ExtResource("2_pp3gk")]
 position = Vector2(366, -173.99998)
 scale = Vector2(2.4370754, 2.4370754)
