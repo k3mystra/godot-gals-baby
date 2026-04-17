@@ -13,7 +13,7 @@ position = Vector2(-330, 224)
 position = Vector2(-289, -139)
 
 [node name="Planet2" parent="." unique_id=994631653 instance=ExtResource("1_ig7tw")]
-position = Vector2(301, 108)
+position = Vector2(951, 382)
 mass = 12.0
 
 [node name="Goal" parent="." unique_id=586600952 instance=ExtResource("3_c0c11")]
