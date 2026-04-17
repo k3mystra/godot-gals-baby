@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fu7sn"]
-load_path = "res://.godot/imported/black.png-a1e24323146fd68efe82fb67bd6f5f9b.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_0o4t1"]
 font = ExtResource("4_jix8l")

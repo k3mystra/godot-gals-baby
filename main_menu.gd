@@ -32,6 +32,16 @@ var active_level_node: Node = null
 var click1 = preload("res://sounds/button1.ogg")
 var click2 = preload("res://sounds/button2.ogg")
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_R and event.is_released():
+			load_level(current_level_index)
+
+	if event is InputEventKey:
+		if event.keycode == KEY_0 and event.is_released():
+			GlobalSignal.print_rocket_amount.emit()
+
+
 func _ready() -> void:
 	main.show()
 	select.hide()
@@ -80,28 +90,29 @@ func _onLevelButtonPressed(level_name: String):
 	camera.enabled = false
 	get_tree().call_group("stars", "queue_free")
 	print ("load level ", level_name)
-	var index = level_name.to_int() - 1 
+	var index = level_name.to_int() - 1
 	load_level(index)
 	main.hide()
 	select.hide()
 
 func load_level(index: int):
 	# 1. Clean up the old level
+	GlobalSignal.remove_current_rocket.emit()
 	if active_level_node:
 		active_level_node.queue_free()
-	
+
 	current_level_index = index
 	# 2. Instance the new level
 	var level_resource = levels[index]
 	active_level_node = level_resource.instantiate()
-	
+
 	# 3. Add it to the container
 	level_container.add_child(active_level_node)
 	print("Loaded Level: ", str(index + 1))
-	
+
 func _on_level_complete():
 	current_level_index += 1
-	
+
 	if current_level_index < levels.size():
 		call_deferred("load_level", current_level_index)
 	else:
