@@ -43,6 +43,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_3iwka")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1132978404]
+light_mask = 2
 position = Vector2(16, -32)
 scale = Vector2(0.609375, 1)
 sprite_frames = SubResource("SpriteFrames_afuvy")

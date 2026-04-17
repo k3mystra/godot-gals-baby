@@ -337,6 +337,7 @@ animations = [{
 }]
 
 [node name="Rocket" type="RigidBody2D" unique_id=384636652 groups=["rocket"]]
+light_mask = 2
 contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 0.35
@@ -351,11 +352,13 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_vaqdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283426119]
+light_mask = 2
 z_index = 1
 rotation = 1.5707964
 texture = ExtResource("5_smobc")
 
 [node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=75350880]
+light_mask = 2
 position = Vector2(-52, 0)
 rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
