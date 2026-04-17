@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://das5nwsxp6wxh"]
 
 [ext_resource type="PackedScene" uid="uid://dbd6pq7m14mx7" path="res://rocket/rocket.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bly7mogf28eh4" path="res://AllUI.tscn" id="3_3fu36"]
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="3_c0c11"]
 
 [node name="Main" type="Node2D" unique_id=294610226]
@@ -12,3 +13,5 @@ position = Vector2(320, 173)
 position = Vector2(608, 488)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573105880]
+
+[node name="AllUI" parent="." unique_id=781963176 instance=ExtResource("3_3fu36")]

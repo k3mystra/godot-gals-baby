@@ -1,31 +1,26 @@
 [gd_scene format=3 uid="uid://dvs6qxhxy2m1k"]
 
 [ext_resource type="Script" uid="uid://cxs42qmllx712" path="res://Goal/goal.gd" id="1_3iwka"]
-[ext_resource type="Texture2D" uid="uid://ddi6rd1jwbc74" path="res://Goal/flag animation.png" id="2_y78nh"]
+[ext_resource type="Texture2D" uid="uid://benj4lki6e3xi" path="res://assets/Flags.png" id="2_3iwka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y78nh"]
+atlas = ExtResource("2_3iwka")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po8gq"]
-atlas = ExtResource("2_y78nh")
-region = Rect2(0, 0, 60, 60)
+atlas = ExtResource("2_3iwka")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5rmw"]
-atlas = ExtResource("2_y78nh")
-region = Rect2(60, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhnyh"]
-atlas = ExtResource("2_y78nh")
-region = Rect2(120, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j3cj"]
-atlas = ExtResource("2_y78nh")
-region = Rect2(180, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_511wh"]
-atlas = ExtResource("2_y78nh")
-region = Rect2(240, 0, 60, 60)
+atlas = ExtResource("2_3iwka")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afuvy"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y78nh")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_po8gq")
 }, {
@@ -33,36 +28,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_p5rmw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bhnyh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5j3cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_511wh")
+"texture": SubResource("AtlasTexture_po8gq")
 }],
 "loop": true,
-"name": &"default",
-"speed": 6.0
+"name": &"flag",
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3iwka"]
-radius = 8.25
-height = 54.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iwka"]
+size = Vector2(34, 56)
 
 [node name="Goal" type="Node2D" unique_id=586600952]
 script = ExtResource("1_3iwka")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1132978404]
-position = Vector2(22, -28)
+position = Vector2(16, -32)
+scale = Vector2(0.609375, 1)
 sprite_frames = SubResource("SpriteFrames_afuvy")
-autoplay = "default"
-frame_progress = 0.65890676
+animation = &"flag"
+frame_progress = 0.37598228
 
 [node name="Area2D" type="Area2D" parent="." unique_id=557089971]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=863380199]
-position = Vector2(0.75, -25)
-shape = SubResource("CapsuleShape2D_3iwka")
+position = Vector2(15, -28)
+scale = Vector2(2.4350593, 1.6854637)
+shape = SubResource("RectangleShape2D_3iwka")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

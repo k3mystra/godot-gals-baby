@@ -1,9 +1,9 @@
-extends Node2D
+extends CanvasLayer
 
-@onready var endscreen = $UI/wordholder
-@onready var gameover = $UI/overscreen
-@onready var transparency = $UI/overscreen/Black
-@onready var PressEnter :Control = $UI/PressEnterToStart
+@onready var endscreen = $CenterContainer/wordholder
+@onready var gameover = $CenterContainer/overscreen
+@onready var transparency = $CenterContainer/overscreen/Black
+@onready var PressEnter :Control = $PressEnterToStart
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
