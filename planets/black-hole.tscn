@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dlwkisfq7cde7"]
+
+[ext_resource type="PackedScene" uid="uid://gaoonmhv48u7" path="res://planets/celestial_body.tscn" id="1_0pdcb"]
+[ext_resource type="SpriteFrames" uid="uid://l4giy5p4lece" path="res://planets/black-hole_spriteframes.tres" id="2_iplcn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcor8"]
+radius = 25.079872
+
+[node name="BlackHole" unique_id=730577519 instance=ExtResource("1_0pdcb")]
+mass = 100.0
+is_mass_adjustable = false
+planet_anims = Array[SpriteFrames]([ExtResource("2_iplcn")])
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1955078249]
+sprite_frames = ExtResource("2_iplcn")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." index="1" unique_id=603091239]
+shape = SubResource("CircleShape2D_xcor8")

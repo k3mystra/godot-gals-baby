@@ -1,38 +1,26 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
-[ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/planet.gd" id="1_0coog"]
-[ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://planets/Planet_sprites_1.tres" id="2_0coog"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0coog"]
-bounce = 0.5
+[ext_resource type="PackedScene" uid="uid://gaoonmhv48u7" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
+[ext_resource type="SpriteFrames" uid="uid://qat0iqabkm03" path="res://planets/dry-planet_spriteframes.tres" id="6_1fdfk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
-radius = 47.010635
+radius = 47.0
 
-[node name="Planet" type="StaticBody2D" unique_id=730577519]
-input_pickable = true
-physics_material_override = SubResource("PhysicsMaterial_0coog")
-script = ExtResource("1_0coog")
-gravity_constant = 5000.0
+[node name="Planet" unique_id=730577519 instance=ExtResource("1_xgwrp")]
 
-[node name="Land" type="AnimatedSprite2D" parent="." unique_id=2046128297]
-sprite_frames = ExtResource("2_0coog")
-animation = &"new_animation"
-autoplay = "new_animation"
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1487429824]
+sprite_frames = ExtResource("6_1fdfk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1271979777]
-position = Vector2(1, 0)
+[node name="CollisionShape" type="CollisionShape2D" parent="." index="1" unique_id=1216801021]
 shape = SubResource("CircleShape2D_0coog")
 
-[node name="Label" type="Label" parent="." unique_id=754522368]
-offset_left = -37.0
-offset_top = -22.0
-offset_right = 37.0
-offset_bottom = 20.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label" type="Label" parent="." index="2" unique_id=1653845604]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
 theme_override_font_sizes/font_size = 15
 text = "Mass"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]

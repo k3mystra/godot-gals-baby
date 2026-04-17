@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://smyjdaoy2x5g"
-path="res://.godot/imported/522517374.png-598b4af857b3bebe6d36bd7da308a68c.ctex"
+uid="uid://catvmhslitway"
+path="res://.godot/imported/lava-planet.png-47c2b9337863a4a3f80f2fa6090f75ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planets/522517374.png"
-dest_files=["res://.godot/imported/522517374.png-598b4af857b3bebe6d36bd7da308a68c.ctex"]
+source_file="res://planets/lava-planet.png"
+dest_files=["res://.godot/imported/lava-planet.png-47c2b9337863a4a3f80f2fa6090f75ca.ctex"]
 
 [params]
 
