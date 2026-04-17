@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bly7mogf28eh4" path="res://AllUI.tscn" id="3_3fu36"]
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="3_c0c11"]
 
-[node name="Main" type="Node2D" unique_id=294610226]
+[node name="Main2" type="Node2D" unique_id=294610226]
 
 [node name="Rocket" parent="." unique_id=384636652 instance=ExtResource("2_0xm2m")]
 position = Vector2(320, 173)
