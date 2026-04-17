@@ -13,6 +13,7 @@ planet_anims = Array[SpriteFrames]([ExtResource("2_iplcn")])
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1955078249]
 sprite_frames = ExtResource("2_iplcn")
+autoplay = "default"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." index="1" unique_id=603091239]
 shape = SubResource("CircleShape2D_xcor8")
