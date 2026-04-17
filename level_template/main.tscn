@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dbd6pq7m14mx7" path="res://rocket/rocket.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bly7mogf28eh4" path="res://AllUI.tscn" id="3_3fu36"]
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="3_c0c11"]
+[ext_resource type="Script" uid="uid://bebr2kjv5fd1g" path="res://level_template/WorldCollider.gd" id="4_3fu36"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c0c11"]
+distance = -80.0
 
 [node name="Main2" type="Node2D" unique_id=294610226]
 
@@ -15,3 +19,41 @@ position = Vector2(608, 488)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1573105880]
 
 [node name="AllUI" parent="." unique_id=781963176 instance=ExtResource("3_3fu36")]
+
+[node name="WorldBorder" type="Node2D" parent="." unique_id=997985235]
+
+[node name="Area2D" type="RigidBody2D" parent="WorldBorder" unique_id=1807236311]
+position = Vector2(0, 288)
+script = ExtResource("4_3fu36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D" unique_id=389346348]
+shape = SubResource("WorldBoundaryShape2D_c0c11")
+
+[node name="Area2D2" type="RigidBody2D" parent="WorldBorder" unique_id=1117566191]
+position = Vector2(-520, -8)
+rotation = 1.5707964
+script = ExtResource("4_3fu36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D2" unique_id=224655506]
+shape = SubResource("WorldBoundaryShape2D_c0c11")
+
+[node name="Area2D3" type="RigidBody2D" parent="WorldBorder" unique_id=1953148529]
+position = Vector2(0, -304)
+rotation = 3.1415927
+script = ExtResource("4_3fu36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D3" unique_id=1829259212]
+shape = SubResource("WorldBoundaryShape2D_c0c11")
+
+[node name="Area2D4" type="RigidBody2D" parent="WorldBorder" unique_id=369651061]
+position = Vector2(584, -8)
+rotation = 4.712389
+script = ExtResource("4_3fu36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D4" unique_id=2132698488]
+shape = SubResource("WorldBoundaryShape2D_c0c11")
+
+[connection signal="body_entered" from="WorldBorder/Area2D" to="WorldBorder/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="WorldBorder/Area2D2" to="WorldBorder/Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="WorldBorder/Area2D3" to="WorldBorder/Area2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="WorldBorder/Area2D4" to="WorldBorder/Area2D4" method="_on_body_entered"]
