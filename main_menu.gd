@@ -50,7 +50,7 @@ func _input(event: InputEvent) -> void:
 	if current_state == GameState.IN_LEVEL:
 		if event is InputEventKey:
 			if event.keycode == KEY_R and event.is_released():
-				call_restart()           
+				call_restart()
 	
 	#for debugging reason
 	#if event is InputEventKey:

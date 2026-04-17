@@ -5,7 +5,6 @@ signal rocket_launched
 signal goal_reached
 
 signal dead
-signal out_of_bound
 
 signal start_level
 
