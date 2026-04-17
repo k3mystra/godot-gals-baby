@@ -41,6 +41,7 @@ scale = Vector2(1.5829271, 1.5829271)
 texture = ExtResource("3_fu7sn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
+zoom = Vector2(1.5, 1.5)
 
 [node name="main" type="Control" parent="." unique_id=425663841]
 layout_mode = 3
