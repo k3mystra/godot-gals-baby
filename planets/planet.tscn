@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
 [ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/planet.gd" id="1_0coog"]
-[ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://PlanetAnimation1.tres" id="2_0coog"]
+[ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://planets/Planet_sprites_1.tres" id="2_0coog"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0coog"]
 bounce = 0.5
@@ -34,7 +34,5 @@ theme_override_font_sizes/font_size = 15
 text = "Mass"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1262577320]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
