@@ -2,12 +2,15 @@
 
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_2.tscn" id="3_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
-[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_1.tscn" id="3_nlkkf"]
-[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_2.tscn" id="4_0o4t1"]
+[ext_resource type="PackedScene" uid="uid://bo45xpyabmq44" path="res://Levels/level_1.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://3h3dt8fm2t4h" path="res://assets/play.png" id="6_0k4wn"]
 [ext_resource type="Script" uid="uid://civ35i4t7kacj" path="res://all_ui.gd" id="7_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://br8ctcgrg6174" path="res://assets/playdark.png" id="7_j5v2v"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
+[ext_resource type="BitMap" uid="uid://dmwxcn2twvs0m" path="res://assets/play1.png" id="8_iotk1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dy7ct"]
 font = ExtResource("4_jix8l")
@@ -23,7 +26,7 @@ font_size = 30
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("3_nlkkf"), ExtResource("4_0o4t1")])
+levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("3_dy7ct")])
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
 scale = Vector2(181.59915, 122.153465)
@@ -52,20 +55,26 @@ offset_bottom = 40.0
 [node name="playholder" type="Node2D" parent="main" unique_id=1530577382]
 position = Vector2(0, 16)
 
-[node name="playbutton" type="Button" parent="main/playholder" unique_id=1770529903]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -64.0
+[node name="playbutton" type="TextureButton" parent="main/playholder" unique_id=629454124]
+offset_left = -88.0
 offset_top = -24.0
-offset_right = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.0018377, 2.0018377)
+offset_right = -32.0
+offset_bottom = -8.0
+scale = Vector2(3.1570656, 3.1570656)
+texture_normal = ExtResource("6_0k4wn")
+texture_pressed = ExtResource("7_j5v2v")
+texture_click_mask = ExtResource("8_iotk1")
+
+[node name="Label" type="Label" parent="main/playholder/playbutton" unique_id=1681230980]
+layout_mode = 0
+offset_left = 7.601995
+offset_top = 2.5339987
+offset_right = 71.602
+offset_bottom = 18.533998
+scale = Vector2(0.6730651, 0.6730651)
 theme_override_fonts/font = ExtResource("1_06t4h")
-text = "Play"
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 16
+text = "PLAY"
 
 [node name="quitholder" type="Node2D" parent="main" unique_id=1114611440]
 
@@ -100,6 +109,7 @@ text = "ROCKET"
 horizontal_alignment = 1
 
 [node name="select" type="GridContainer" parent="." unique_id=1283662250]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,25 +186,31 @@ text = "LEVEL 10
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=397011199]
 
-[node name="AllUI" type="Node2D" parent="." unique_id=1023732795]
+[node name="AllUI" type="Node2D" parent="." unique_id=1954653638]
 script = ExtResource("7_8qtwp")
 
-[node name="UI" type="CanvasLayer" parent="AllUI" unique_id=1684293636]
+[node name="UI" type="CanvasLayer" parent="AllUI" unique_id=1276948122]
 follow_viewport_enabled = true
 
-[node name="overscreen" type="Control" parent="AllUI/UI" unique_id=922082780]
+[node name="overscreen" type="Control" parent="AllUI/UI" unique_id=2041481553]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -1400.0
+offset_bottom = -904.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Black" type="Sprite2D" parent="AllUI/UI/overscreen" unique_id=751043858]
+[node name="Black" type="Sprite2D" parent="AllUI/UI/overscreen" unique_id=1794896180]
 self_modulate = Color(1, 1, 1, 0.59607846)
 position = Vector2(-5.159195, -3.5)
 scale = Vector2(14.937638, 4.2727275)
 texture = ExtResource("8_dy7ct")
 
-[node name="Label" type="Label" parent="AllUI/UI/overscreen" unique_id=1831080132]
+[node name="Label" type="Label" parent="AllUI/UI/overscreen" unique_id=539023354]
 layout_mode = 0
 offset_left = -296.00003
 offset_top = -64.0
@@ -204,8 +220,9 @@ scale = Vector2(1.0999424, 1.0468293)
 theme_override_fonts/font = ExtResource("4_jix8l")
 theme_override_font_sizes/font_size = 125
 text = "YOU DIED"
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="AllUI/UI/overscreen" unique_id=278269291]
+[node name="Label2" type="Label" parent="AllUI/UI/overscreen" unique_id=824654237]
 layout_mode = 0
 offset_left = -160.0
 offset_top = 80.0
@@ -213,14 +230,22 @@ offset_right = 155.0
 offset_bottom = 115.0
 text = "Press R to Restart"
 label_settings = SubResource("LabelSettings_dy7ct")
+metadata/_edit_use_anchors_ = true
 
-[node name="wordholder" type="Control" parent="AllUI/UI" unique_id=679872063]
+[node name="wordholder" type="Control" parent="AllUI/UI" unique_id=381409728]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.25833333
+anchor_bottom = 0.096296296
+offset_left = -256.0
+offset_top = -48.0
+offset_right = -256.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="gamewon" type="Label" parent="AllUI/UI/wordholder" unique_id=60831661]
+[node name="gamewon" type="Label" parent="AllUI/UI/wordholder" unique_id=434314071]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -239,53 +264,58 @@ label_settings = SubResource("LabelSettings_0o4t1")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PressEnterToStart" type="Control" parent="AllUI/UI" unique_id=1709377953]
+[node name="PressEnterToStart" type="Control" parent="AllUI/UI" unique_id=1130862958]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -560.0
-offset_top = -752.0
-offset_right = -520.0
-offset_bottom = -712.0
-grow_vertical = 0
+offset_left = 528.0
+offset_top = 248.0
+offset_right = -1248.0
+offset_bottom = -784.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="AllUI/UI/PressEnterToStart" unique_id=1296211517]
+[node name="Label" type="Label" parent="AllUI/UI/PressEnterToStart" unique_id=1285733956]
 layout_mode = 0
-offset_left = 426.0
-offset_top = -335.0
-offset_right = 827.0
-offset_bottom = -308.0
+offset_left = -168.0
+offset_right = 233.0
+offset_bottom = 27.0
 text = "Press Enter to Start"
 label_settings = SubResource("LabelSettings_8qtwp")
+metadata/_edit_use_anchors_ = true
 
-[node name="Black" type="Sprite2D" parent="AllUI/UI/PressEnterToStart/Label" unique_id=754176550]
+[node name="Black" type="Sprite2D" parent="AllUI/UI/PressEnterToStart/Label" unique_id=1656874023]
 self_modulate = Color(1, 1, 1, 0.59607846)
 z_index = -2
 position = Vector2(131, 14.499998)
 scale = Vector2(6.4651165, 2.0303028)
 texture = ExtResource("8_dy7ct")
 
-[node name="PressSpaceToThrust" type="Control" parent="AllUI/UI" unique_id=1029205580]
+[node name="PressSpaceToThrust" type="Control" parent="AllUI/UI" unique_id=1760143419]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -762.0
-offset_right = -17.0
-offset_bottom = -722.0
-grow_vertical = 0
+anchor_left = 0.18716668
+anchor_top = 0.19981481
+anchor_right = -0.12516664
+anchor_bottom = -0.17037037
+offset_left = 136.63998
+offset_top = 88.2
+offset_right = 768.31995
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="AllUI/UI/PressSpaceToThrust" unique_id=894108811]
+[node name="Label" type="Label" parent="AllUI/UI/PressSpaceToThrust" unique_id=1832917217]
 layout_mode = 0
-offset_left = 401.0
+offset_left = -144.0
 offset_top = 2.0
-offset_right = 683.0
+offset_right = 138.0
 offset_bottom = 29.0
 text = "Press Space to Thrust"
 label_settings = SubResource("LabelSettings_8qtwp")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="main/playholder/playbutton" to="." method="_on_playbutton_pressed"]
+[connection signal="button_up" from="main/playholder/playbutton" to="." method="_on_playbutton_button_up"]
 [connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]
