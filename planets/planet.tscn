@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
-[ext_resource type="PackedScene" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
+[ext_resource type="PackedScene" uid="uid://gaoonmhv48u7" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
 [ext_resource type="PackedScene" uid="uid://cj8r0yhsbv5wt" path="res://planets/gravity_arrows.tscn" id="3_60e5m"]
 [ext_resource type="Texture2D" uid="uid://lfan6cwgp2uw" path="res://planets/planet-template.png" id="4_6sy1c"]
+[ext_resource type="AudioStream" uid="uid://bgv7go7apx5ba" path="res://sounds/resize.ogg" id="5_cwbxm"]
 [ext_resource type="SpriteFrames" uid="uid://doh7cbecnlp6o" path="res://planets/dry-planet_spriteframes.tres" id="6_1fdfk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0coog"]
@@ -39,3 +40,7 @@ position = Vector2(0.4999999, 0.5)
 scale = Vector2(0.38671872, 0.38671875)
 energy = 5.43
 texture = ExtResource("4_6sy1c")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="4" unique_id=2139479626]
+stream = ExtResource("5_cwbxm")
+volume_db = -10.0

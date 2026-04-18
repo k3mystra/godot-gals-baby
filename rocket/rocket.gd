@@ -53,7 +53,7 @@ func _input(event):
 			exhaust.add_power(is_thrusting)
 		elif event.is_action_released("SPACEBAR_KEY"):
 			is_thrusting = false
-			play_sound(stop, 1.5)
+			play_sound(stop, 1.5, -15)
 			exhaust.stop_adding_power()
 
 func _physics_process(_delta):
@@ -84,11 +84,11 @@ func die():
 	var randSound = randi_range(0, 4)
 	thrusterloop.stop()
 	match randSound:
-		0: play_sound(explode1, 1)
-		1: play_sound(explode2, 1)
-		2: play_sound(explode3, 1)
-		3: play_sound(explode4, 1)
-		4: play_sound(explode5, 1)
+		0: play_sound(explode1, 1, 0)
+		1: play_sound(explode2, 1, 0)
+		2: play_sound(explode3, 1, 0)
+		3: play_sound(explode4, 1, 0)
+		4: play_sound(explode5, 1, 0)
 	var new_explosion = explosion.instantiate() as Explosion
 	get_parent().add_child(new_explosion)
 	new_explosion.global_position = global_position + explosion_position
@@ -101,10 +101,11 @@ func _on_body_entered(body: Node2D) -> void:
 	stop_gameplay()
 	die()
 
-func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PASTE THIS
+func play_sound (stream: AudioStream, pitch: float, volume: float): # YOU CAN JUST COPY AND PASTE THIS
 	var p = AudioStreamPlayer2D.new() # make new audioplayer
 	p.stream = stream
 	p.pitch_scale = pitch + randf_range(-0.3, 0.3)
+	p.volume_db = volume
 	add_child(p) # adds to the world
 	p.play() # play first
 	p.finished.connect(p.queue_free) # remove itself after finished playing

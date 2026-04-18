@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="2_2v0s2"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="3_ek1vm"]
 [ext_resource type="PackedScene" uid="uid://ddh5dcqwvuycq" path="res://UI/play_and_pause_button.tscn" id="4_2v0s2"]
-[ext_resource type="PackedScene" uid="uid://dsi0t7ap3skx7" path="res://buddy.tscn" id="5_ek1vm"]
 [ext_resource type="PackedScene" uid="uid://ckcnswqomw7j2" path="res://UI/restart_button.tscn" id="6_6g6po"]
 [ext_resource type="PackedScene" uid="uid://dfvo6oxcewtu1" path="res://UI/next_level_button.tscn" id="7_k53ts"]
 [ext_resource type="PackedScene" uid="uid://cfm5sre5d53jv" path="res://UI/menu_button.tscn" id="8_8acau"]
@@ -152,13 +151,6 @@ offset_left = 48.0
 offset_top = 32.0
 offset_right = 64.0
 offset_bottom = 48.0
-
-[node name="Buddy" parent="." unique_id=471245187 instance=ExtResource("5_ek1vm")]
-offset_left = 1613.0
-offset_top = 970.0
-offset_right = 1919.0
-offset_bottom = 1082.0
-text = "asdfasdf"
 
 [node name="NextLevelButton" parent="." unique_id=271405502 instance=ExtResource("7_k53ts")]
 offset_left = 968.0

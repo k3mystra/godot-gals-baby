@@ -94,10 +94,7 @@ func _turn_anim():
 func _on_playbutton_button_up() -> void:
 	main.hide()
 	select.show()
-	var randSound = randi_range(0, 1)
-	match randSound:
-		0: play_sound(click1, 1)
-		1: play_sound(click2, 1)
+	click_sound()
 	
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
@@ -107,6 +104,7 @@ func _onLevelButtonPressed(level_name: String):
 	spawn_star = false
 	details.hide()
 	camera.enabled = false
+	click_sound()
 	get_tree().call_group("stars", "queue_free")
 	print ("load level ", level_name)
 	var index = level_name.to_int() - 1
@@ -151,7 +149,13 @@ func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PAS
 	add_child(p) # adds to the world
 	p.play() # play first
 	p.finished.connect(p.queue_free) # remove itself after finished playing
-	
+
+func click_sound():
+	var randSound = randi_range(0, 1)
+	match randSound:
+		0: play_sound(click1, 1)
+		1: play_sound(click2, 1)
+
 func return_main_menu():
 	if active_level_node:
 		active_level_node.queue_free()
