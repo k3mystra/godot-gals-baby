@@ -647,6 +647,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="AnimatedSprite2D" unique_id=458513809]
+light_mask = 2
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qegy4")
 animation = &"3"
