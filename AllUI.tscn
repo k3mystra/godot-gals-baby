@@ -32,7 +32,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="overscreen" type="Control" parent="CenterContainer" unique_id=1458039573]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/overscreen" unique_id=308115397]
