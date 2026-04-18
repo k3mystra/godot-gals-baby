@@ -7,14 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://ccghc7ryvyl7s" path="res://Levels/level_3.tscn" id="4_0k4wn"]
 [ext_resource type="PackedScene" uid="uid://dp3ijhg7vfi0c" path="res://Levels/level_1.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
+[ext_resource type="PackedScene" uid="uid://nl2vd7jx2psw" path="res://Levels/level_4.tscn" id="5_iotk1"]
 [ext_resource type="Texture2D" uid="uid://3h3dt8fm2t4h" path="res://assets/play.png" id="6_0k4wn"]
 [ext_resource type="Texture2D" uid="uid://br8ctcgrg6174" path="res://assets/playdark.png" id="7_j5v2v"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 [ext_resource type="BitMap" uid="uid://dmwxcn2twvs0m" path="res://assets/play1.png" id="8_iotk1"]
+[ext_resource type="AudioStream" uid="uid://btysi62xkxxyq" path="res://audio/JDSherbert - Minigame Music Pack - Smooth Driving.mp3" id="12_j5v2v"]
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("3_dy7ct"), ExtResource("4_0k4wn")])
+levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("3_dy7ct"), ExtResource("4_0k4wn"), ExtResource("5_iotk1")])
+bg_music_volume = -15.0
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
 scale = Vector2(181.59915, 122.153465)
@@ -174,5 +177,11 @@ text = "LEVEL 10
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=397011199]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=856595705]
+stream = ExtResource("12_j5v2v")
+autoplay = true
+parameters/looping = true
+
 [connection signal="button_up" from="main/playholder/playbutton" to="." method="_on_playbutton_button_up"]
 [connection signal="pressed" from="main/quitholder/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]

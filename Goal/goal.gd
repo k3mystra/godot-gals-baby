@@ -1,5 +1,7 @@
 class_name Goal extends Node2D
 
+@onready var particle = $CPUParticles2D
+
 #PRELOAD SOUNDS HERE
 var win1 = preload("res://sounds/win1.ogg")
 var win2 = preload("res://sounds/win2.ogg")
@@ -8,6 +10,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rocket"):
 		GlobalSignal.goal_reached.emit()
 		var randSound = randi_range(0, 1)
+		particle.emitting = true
 		match randSound:
 			0: play_sound(win1, 1)
 			1: play_sound(win2, 1)

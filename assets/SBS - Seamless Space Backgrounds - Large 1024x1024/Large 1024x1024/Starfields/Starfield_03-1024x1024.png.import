@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cykrjhhshprww"
-path="res://.godot/imported/Face1_IncreaseMass.png-0187b61ae3392e18077e324757e249f4.ctex"
+uid="uid://76bpasik2ymx"
+path="res://.godot/imported/Starfield_03-1024x1024.png-fc5ea5c4a15300ef3ea20e33a8f01276.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/faces/Face1_IncreaseMass.png"
-dest_files=["res://.godot/imported/Face1_IncreaseMass.png-0187b61ae3392e18077e324757e249f4.ctex"]
+source_file="res://assets/SBS - Seamless Space Backgrounds - Large 1024x1024/Large 1024x1024/Starfields/Starfield_03-1024x1024.png"
+dest_files=["res://.godot/imported/Starfield_03-1024x1024.png-fc5ea5c4a15300ef3ea20e33a8f01276.ctex"]
 
 [params]
 

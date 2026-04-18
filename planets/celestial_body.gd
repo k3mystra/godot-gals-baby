@@ -14,7 +14,7 @@ extends StaticBody2D
 
 @export var GravityArrow : PackedScene
 @export var arrow_count: int = 12
-@export var orbit_radius: float = 150.0
+@export var orbit_radius: float = 60.0
 
 @onready var sound = $sound
 
@@ -28,14 +28,11 @@ func _ready() -> void:
 	#GlobalSignal.remove_current_rocket.connect(clear_rocket)
 	GlobalSignal.print_rocket_amount.connect(print_rocekt_amount)
 	GlobalSignal.restart_level.connect(exit_planet_group)
-
-	update_mass_label()
 	deactivate_everything()
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
 	$AnimatedSprite.play("default")
-	
-	mass = 0
-	#spawn_gravity_arrows()
+	spawn_gravity_arrows()
+	update_mass_label()
 
 func exit_planet_group():
 	remove_from_group("planet")
@@ -57,8 +54,6 @@ func spawn_gravity_arrows():
 		# 4. Set position and rotation
 		arrow.position = pos
 		
-		# Look_at usually points the +X axis (right) toward the target
-		# If your arrow sprite points up, you might need to add/subtract 90 degrees
 		arrow.rotation = angle + PI # PI (180 deg) points them inward toward center
 
 #This is for debug why rocket doesnt work when loading new level
@@ -129,7 +124,19 @@ func _input(event: InputEvent) -> void:
 			print(rockets.size())
 
 func update_mass_label() -> void:
-	if is_mass_adjustable:
-		$Label.text = "%.2f" % mass
-		var ratio = 1.0 + (mass/10)
-		GravityLight.scale = LightSize * ratio
+	var original_arrow_scale = Vector2(0.25,0.25)
+	$Label.text = "%.2f" % mass
+	var ratio = 1.0 + (mass/10)
+	GravityLight.scale = LightSize * (ratio)
+	var speed_ratio = 1.0 + (mass/10)
+	if speed_ratio == 1.0:
+		for i in get_children():
+			if i is GravityArrows:
+				i.scale = original_arrow_scale
+				i.hide()
+	else:
+		for i in get_children():
+			if i is GravityArrows:
+				i.show()	
+				i.speed = speed_ratio
+				i.scale = original_arrow_scale * ratio

@@ -14,6 +14,7 @@ extends Node2D
 @onready var lost = $main/wordholder/lost
 @onready var crocket = $main/wordholder/rocket
 @onready var camera = $Camera2D
+@onready var background_music : AudioStreamPlayer = $BackgroundMusic
 
 var star = preload("res://star_menu.tscn")
 var clock = 0.0
@@ -30,6 +31,7 @@ var active_level_node: Node = null
 
 var current_state : GameState = GameState.IN_MENU
 
+@export var bg_music_volume : float 
 #PRELOAD SOUNDS HERE
 var click1 = preload("res://sounds/button1.ogg")
 var click2 = preload("res://sounds/button2.ogg")
@@ -67,6 +69,9 @@ func _ready() -> void:
 	for button in select.get_children():
 		if button is Button:
 			button.pressed.connect(_onLevelButtonPressed.bind(button.name))
+			
+	background_music.volume_db = bg_music_volume
+	background_music.play()
 
 func _process(delta: float) -> void:
 	clock += delta * 2
@@ -166,3 +171,7 @@ func return_main_menu():
 	camera.enabled = true
 	main.show()
 	select.hide()
+	
+func _on_background_music_finished() -> void:
+	background_music.volume_db = bg_music_volume
+	background_music.play()
