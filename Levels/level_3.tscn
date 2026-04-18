@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cxuk3hghf4w46"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_bhyyx"]
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="2_s04we"]
+
+[node name="Main2" unique_id=294610226 instance=ExtResource("1_bhyyx")]
+
+[node name="Rocket" parent="." index="0" unique_id=384636652]
+position = Vector2(-637, -285)
+
+[node name="Goal" parent="." index="1" unique_id=586600952]
+position = Vector2(646, 380)
+
+[node name="WorldBorder" parent="." index="4" unique_id=997985235]
+scale = Vector2(2.067351, 2.067351)
+
+[node name="Planet" parent="." index="6" unique_id=730577519 instance=ExtResource("2_s04we")]
+position = Vector2(463.00003, -217.00002)
+scale = Vector2(7.4051795, 7.4051795)
+
+[node name="Planet2" parent="." index="7" unique_id=449127431 instance=ExtResource("2_s04we")]
+position = Vector2(-385, 264)
+scale = Vector2(-2.2530951, -2.2530951)

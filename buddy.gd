@@ -1,7 +1,7 @@
 class_name buddy extends Node2D
 
 @export var planet_group: String = "planet"
-@export var randomizer_chance_per_second: float = 0.1
+@export var randomizer_chance_per_second: float = 0.9
 @onready var planets: Array[Node] = []
 @onready var eye1 = $face/anchor/eye1
 @onready var eye2 = $face/anchor/eye2
@@ -17,6 +17,9 @@ var frequency : float
 @export var amplitude : float
 
 var active : bool = false
+
+#PRELOAD SOUNDS HERE
+var grunt1 = preload("res://sounds/grunt1.ogg")
 
 func _ready() -> void:
 	frequency = randf_range(1, 4)
@@ -45,6 +48,7 @@ func _on_timer_timeout() -> void:
 	if active:
 		var result: bool = randf() <= randomizer_chance_per_second
 		if (result):
+			play_sound(grunt1, 1)
 			label.text = "I'll change that for you"
 			randomize_mass()
 			$CloseDialogTimer.start()
@@ -90,3 +94,12 @@ func _turn_anim():
 	elif face.position.x < vectorzero.position.x:
 		dir = -0.1
 	face.rotation_degrees = clamp(face.rotation_degrees + dir, -angleLimit, angleLimit)
+
+func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PASTE THIS
+	var p = AudioStreamPlayer2D.new() # make new audioplayer
+	p.stream = stream
+	p.pitch_scale = pitch
+	p.volume_db = -25
+	add_child(p) # adds to the world
+	p.play() # play first
+	p.finished.connect(p.queue_free) # remove itself after finished playing

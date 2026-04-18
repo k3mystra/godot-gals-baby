@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://wcgk1imvkpmx"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_s60kp"]
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="2_iqjs3"]
+[ext_resource type="PackedScene" uid="uid://dsi0t7ap3skx7" path="res://buddy.tscn" id="4_k4mr7"]
+
+[node name="Main2" unique_id=294610226 instance=ExtResource("1_s60kp")]
+
+[node name="Rocket" parent="." index="0" unique_id=384636652]
+position = Vector2(-2217, 110)
+
+[node name="Goal" parent="." index="1" unique_id=586600952]
+position = Vector2(1994, 592)
+
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+zoom = Vector2(0.4, 0.4)
+
+[node name="WorldBorder" parent="." index="4" unique_id=997985235]
+scale = Vector2(4.949373, 4.949373)
+
+[node name="TileMapLayer" parent="." index="5" unique_id=1208585536]
+scale = Vector2(5.18489, 5.18489)
+
+[node name="Planet" parent="." index="6" unique_id=730577519 instance=ExtResource("2_iqjs3")]
+position = Vector2(102, 947.00006)
+scale = Vector2(6.819191, 6.819191)
+
+[node name="Planet2" parent="." index="7" unique_id=562168403 instance=ExtResource("2_iqjs3")]
+position = Vector2(698.00006, -807)
+scale = Vector2(4.0336413, 4.9536405)
+
+[node name="Planet3" parent="." index="8" unique_id=1234283666 instance=ExtResource("2_iqjs3")]
+position = Vector2(-1627, -748.00006)
+scale = Vector2(3.6773567, 3.6773567)
+
+[node name="Buddy" parent="." index="9" unique_id=525454601 instance=ExtResource("4_k4mr7")]
+position = Vector2(-1537, 720)
+
+[node name="Buddy2" parent="." index="10" unique_id=1717188625 instance=ExtResource("4_k4mr7")]
+position = Vector2(-1206, 876)
+
+[node name="Buddy3" parent="." index="11" unique_id=980691168 instance=ExtResource("4_k4mr7")]
+position = Vector2(-1298, 545)
+
+[node name="Planet6" parent="." index="12" unique_id=492286 instance=ExtResource("2_iqjs3")]
+position = Vector2(1832, -509.99997)
+scale = Vector2(10.087548, 10.087548)
+
+[node name="Planet4" parent="." index="13" unique_id=955838767 instance=ExtResource("2_iqjs3")]
+position = Vector2(1421, 934)
+scale = Vector2(3.9670987, 3.9670987)
+
+[node name="Planet5" parent="." index="14" unique_id=695575986 instance=ExtResource("2_iqjs3")]
+position = Vector2(-357, -867)
+scale = Vector2(8.5811825, 8.5811825)
+
+[node name="Buddy4" parent="." index="15" unique_id=116881435 instance=ExtResource("4_k4mr7")]
+position = Vector2(-1015, 661)
+
+[node name="Buddy5" parent="." index="16" unique_id=1204641516 instance=ExtResource("4_k4mr7")]
+position = Vector2(-900, 908)

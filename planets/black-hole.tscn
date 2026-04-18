@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm8soyhyh4gx0"]
 
-[ext_resource type="PackedScene" path="res://planets/celestial_body.tscn" id="1_0pdcb"]
-[ext_resource type="Script" uid="uid://ckcfkin1bbnyn" path="res://planets/black_hole.gd" id="2_6mk6o"]
+[ext_resource type="PackedScene" uid="uid://gaoonmhv48u7" path="res://planets/celestial_body.tscn" id="1_0pdcb"]
+[ext_resource type="Script" path="res://planets/black_hole.gd" id="2_6mk6o"]
 [ext_resource type="SpriteFrames" uid="uid://cjpeopxoetjem" path="res://planets/black-hole_spriteframes.tres" id="2_iplcn"]
 [ext_resource type="PackedScene" uid="uid://cj8r0yhsbv5wt" path="res://planets/gravity_arrows.tscn" id="3_kj4nv"]
 [ext_resource type="Texture2D" uid="uid://lfan6cwgp2uw" path="res://planets/planet-template.png" id="3_wwm70"]
@@ -13,9 +13,10 @@ radius = 25.079872
 [node name="BlackHole" unique_id=730577519 instance=ExtResource("1_0pdcb")]
 script = ExtResource("2_6mk6o")
 mass = 100.0
-gravity_constant = 9.0
+is_mass_adjustable = false
 planet_anims = Array[SpriteFrames]([])
 GravityArrow = ExtResource("3_kj4nv")
+arrow_count = 0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1955078249]

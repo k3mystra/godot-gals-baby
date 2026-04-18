@@ -17,8 +17,8 @@ position = Vector2(467, 154)
 zoom = Vector2(0.8, 0.8)
 
 [node name="Planet" parent="." index="4" unique_id=730577519 instance=ExtResource("2_s04we")]
-position = Vector2(31.999985, -45.999992)
-scale = Vector2(1.9963906, 1.9963906)
+position = Vector2(168.00002, 87)
+scale = Vector2(3.2225273, 3.2225273)
 
 [node name="WorldBorder" parent="." index="5" unique_id=997985235]
 scale = Vector2(2.263862, 2.263862)
@@ -28,3 +28,11 @@ tile_map_data = PackedByteArray("AADc/+r/AAARAA4AAADc/+v/AAARAA8AAADc/+z/AAARABA
 
 [node name="Buddy" parent="." index="7" unique_id=525454601 instance=ExtResource("3_2vdoi")]
 position = Vector2(844, 438)
+
+[node name="Planet2" parent="." index="8" unique_id=1627773161 instance=ExtResource("2_s04we")]
+position = Vector2(37, -358.00003)
+scale = Vector2(3.414424, 3.354207)
+
+[node name="Planet3" parent="." index="9" unique_id=2041741820 instance=ExtResource("2_s04we")]
+position = Vector2(-596, -81)
+scale = Vector2(3.3253064, 3.3253064)

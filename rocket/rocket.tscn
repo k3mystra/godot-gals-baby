@@ -200,7 +200,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbdcq")
 }],
-"loop": false,
+"loop": true,
 "name": &"continuous vroom vroom",
 "speed": 30.0
 }, {
@@ -365,9 +365,7 @@ position = Vector2(-93, 0)
 rotation = 1.5707964
 scale = Vector2(0.46198037, 0.46198037)
 sprite_frames = SubResource("SpriteFrames_3pfuj")
-animation = &"vroom vroom"
-frame = 7
-frame_progress = 1.0
+animation = &"continuous vroom vroom"
 script = ExtResource("4_gxqvl")
 
 [node name="thrusterloop" type="AudioStreamPlayer2D" parent="." unique_id=2119892153]

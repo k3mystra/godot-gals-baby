@@ -3,19 +3,26 @@
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://bsoctt1vhwajf" path="res://Levels/tutorial_1.tscn" id="2_0k4wn"]
-[ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://dxxa61tkc5714" path="res://Levels/tutorial_2.tscn" id="3_j5v2v"]
+[ext_resource type="PackedScene" uid="uid://cxuk3hghf4w46" path="res://Levels/level_3.tscn" id="4_0k4wn"]
+[ext_resource type="PackedScene" uid="uid://dp3ijhg7vfi0c" path="res://Levels/level_4.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
+[ext_resource type="PackedScene" uid="uid://nl2vd7jx2psw" path="res://Levels/level_5.tscn" id="5_iotk1"]
+[ext_resource type="PackedScene" uid="uid://ccghc7ryvyl7s" path="res://Levels/level_6.tscn" id="5_w44g7"]
 [ext_resource type="Texture2D" uid="uid://3h3dt8fm2t4h" path="res://assets/play.png" id="6_0k4wn"]
 [ext_resource type="Texture2D" uid="uid://cm24oxpmypfkn" path="res://assets/Rocket.png" id="7_iotk1"]
 [ext_resource type="Texture2D" uid="uid://br8ctcgrg6174" path="res://assets/playdark.png" id="7_j5v2v"]
+[ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_7.tscn" id="8_8u0te"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 [ext_resource type="BitMap" uid="uid://dmwxcn2twvs0m" path="res://assets/play1.png" id="8_iotk1"]
+[ext_resource type="PackedScene" uid="uid://idngpolhilm7" path="res://Levels/level_8.tscn" id="9_oiatc"]
+[ext_resource type="PackedScene" uid="uid://hvuvfea27d8l" path="res://Levels/level_9.tscn" id="10_oiatc"]
+[ext_resource type="PackedScene" uid="uid://wcgk1imvkpmx" path="res://Levels/level_10.tscn" id="11_mg3m2"]
 [ext_resource type="AudioStream" uid="uid://btysi62xkxxyq" path="res://audio/JDSherbert - Minigame Music Pack - Smooth Driving.mp3" id="12_j5v2v"]
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("2_0k4wn"), ExtResource("3_j5v2v")])
+levels = Array[PackedScene]([ExtResource("2_0k4wn"), ExtResource("3_j5v2v"), ExtResource("4_0k4wn"), ExtResource("4_0o4t1"), ExtResource("5_iotk1"), ExtResource("5_w44g7"), ExtResource("8_8u0te"), ExtResource("9_oiatc"), ExtResource("10_oiatc"), ExtResource("11_mg3m2")])
 bg_music_volume = -15.0
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]

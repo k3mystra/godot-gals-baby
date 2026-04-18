@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://idngpolhilm7"]
 
 [ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_8dfjl"]
+[ext_resource type="PackedScene" uid="uid://bm8soyhyh4gx0" path="res://planets/black-hole.tscn" id="2_cfpsd"]
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="3_qowmf"]
 
 [node name="Main2" unique_id=294610226 instance=ExtResource("1_8dfjl")]
 
@@ -12,3 +14,18 @@ position = Vector2(1189, 333)
 
 [node name="Camera2D" parent="." index="2" unique_id=1573105880]
 zoom = Vector2(0.6, 0.6)
+
+[node name="WorldBorder" parent="." index="4" unique_id=997985235]
+scale = Vector2(3.010961, 3.010961)
+
+[node name="BlackHole" parent="." index="6" unique_id=730577519 instance=ExtResource("2_cfpsd")]
+position = Vector2(522, -240)
+scale = Vector2(4.7928, 4.7928)
+
+[node name="Planet" parent="." index="7" unique_id=1301074183 instance=ExtResource("3_qowmf")]
+position = Vector2(621, 606)
+scale = Vector2(4.9346924, 4.9346924)
+
+[node name="Planet2" parent="." index="8" unique_id=1141181798 instance=ExtResource("3_qowmf")]
+position = Vector2(-775, 509)
+scale = Vector2(5.1522856, 5.1522856)

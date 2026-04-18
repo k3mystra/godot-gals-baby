@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://hvuvfea27d8l"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_0myqp"]
+[ext_resource type="PackedScene" uid="uid://bm8soyhyh4gx0" path="res://planets/black-hole.tscn" id="2_t63ql"]
+[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="3_v10ax"]
+
+[node name="Main2" unique_id=294610226 instance=ExtResource("1_0myqp")]
+
+[node name="Rocket" parent="." index="0" unique_id=384636652]
+position = Vector2(-1759, -1)
+
+[node name="Goal" parent="." index="1" unique_id=586600952]
+position = Vector2(1413.9998, 29.99999)
+scale = Vector2(3.2325752, 3.2325752)
+
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+zoom = Vector2(0.5, 0.5)
+
+[node name="WorldBorder" parent="." index="4" unique_id=997985235]
+scale = Vector2(4.568034, 4.568034)
+
+[node name="TileMapLayer" parent="." index="5" unique_id=1208585536]
+scale = Vector2(9.53658, 9.53658)
+
+[node name="BlackHole3" parent="." index="6" unique_id=321279408 instance=ExtResource("2_t63ql")]
+position = Vector2(2076, -55.000004)
+scale = Vector2(4.254149, 4.254149)
+
+[node name="Planet2" parent="." index="7" unique_id=481715456 instance=ExtResource("3_v10ax")]
+position = Vector2(-1039, 1022)
+scale = Vector2(8.719645, 8.719645)
+
+[node name="Planet" parent="." index="8" unique_id=1650070085 instance=ExtResource("3_v10ax")]
+position = Vector2(893.99994, -1051)
+scale = Vector2(8.719645, 8.719645)
+
+[node name="Planet3" parent="." index="9" unique_id=730577519 instance=ExtResource("3_v10ax")]
+position = Vector2(183.00002, -439)
+scale = Vector2(4.2231092, 20.373657)

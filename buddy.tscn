@@ -116,6 +116,7 @@ animations = [{
 [node name="Buddy" type="Node2D" unique_id=525454601]
 z_index = 55
 script = ExtResource("1_hprr6")
+randomizer_chance_per_second = 0.4
 angleLimit = 10.0
 amplitude = 4.0
 
@@ -129,7 +130,7 @@ theme_override_fonts/font = ExtResource("2_bjh3o")
 theme_override_font_sizes/font_size = 25
 
 [node name="RandomizerTimer" type="Timer" parent="." unique_id=817302185]
-wait_time = 7.0
+wait_time = 5.0
 autostart = true
 
 [node name="CloseDialogTimer" type="Timer" parent="." unique_id=1742645528]
