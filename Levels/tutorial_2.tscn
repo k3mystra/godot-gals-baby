@@ -5,16 +5,15 @@
 
 [node name="Tutorial2" unique_id=294610226 instance=ExtResource("1_t7n8p")]
 
-[node name="Rocket" parent="." index="0" unique_id=384636652]
+[node name="Planet" parent="." index="0" unique_id=730577519 instance=ExtResource("2_hy8r5")]
+position = Vector2(112, -100)
+
+[node name="Rocket" parent="." index="1" unique_id=384636652]
 position = Vector2(-360, -144)
 rotation = 0.5235988
 
-[node name="Goal" parent="." index="1" unique_id=586600952]
-position = Vector2(24, 248.00002)
+[node name="Goal" parent="." index="2" unique_id=586600952]
+position = Vector2(405, 202)
 
-[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+[node name="Camera2D" parent="." index="3" unique_id=1573105880]
 zoom = Vector2(1.5, 1.5)
-
-[node name="Planet" parent="." index="6" unique_id=730577519 instance=ExtResource("2_hy8r5")]
-position = Vector2(-8, -104)
-mass = 10.0

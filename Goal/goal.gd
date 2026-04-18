@@ -11,11 +11,13 @@ var win4 = preload("res://sounds/win4.ogg")
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rocket"):
 		GlobalSignal.goal_reached.emit()
-		var randSound = randi_range(0, 1)
+		var randSound = randi_range(0, 3)
 		particle.emitting = true
 		match randSound:
 			0: play_sound(win1, 1)
 			1: play_sound(win2, 1)
+			2: play_sound(win3, 1)
+			3: play_sound(win4, 1)
 
 func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PASTE THIS
 	var p = AudioStreamPlayer2D.new() # make new audioplayer
