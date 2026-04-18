@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b33ccubpj0yhm"
-path="res://.godot/imported/Face1_Idle.png-444948a712ba2e97ad22c6621b4a9c45.ctex"
+uid="uid://dj4dsiajq0bts"
+path="res://.godot/imported/mouth2.png-ff5b3925ab8becab90d5a217f1af3424.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/faces/Face1_Idle.png"
-dest_files=["res://.godot/imported/Face1_Idle.png-444948a712ba2e97ad22c6621b4a9c45.ctex"]
+source_file="res://assets/faces/mouth2.png"
+dest_files=["res://.godot/imported/mouth2.png-ff5b3925ab8becab90d5a217f1af3424.ctex"]
 
 [params]
 

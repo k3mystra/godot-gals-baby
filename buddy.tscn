@@ -1,19 +1,171 @@
 [gd_scene format=3 uid="uid://dsi0t7ap3skx7"]
 
 [ext_resource type="Script" uid="uid://cr1xscp38j6lo" path="res://buddy.gd" id="1_hprr6"]
+[ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="2_bjh3o"]
+[ext_resource type="Texture2D" uid="uid://dw2vkkua5wbgg" path="res://assets/faces/eye11.png" id="2_yboym"]
+[ext_resource type="Texture2D" uid="uid://qimt0bt8r2ww" path="res://assets/faces/eye12.png" id="3_bjh3o"]
+[ext_resource type="Texture2D" uid="uid://tsdxiw42j6hw" path="res://assets/faces/eye13.png" id="4_fqw5r"]
+[ext_resource type="Texture2D" uid="uid://bdsypagvi3vtg" path="res://assets/faces/eye21.png" id="5_387ti"]
+[ext_resource type="Texture2D" uid="uid://bd87552noe2nv" path="res://assets/faces/eye22.png" id="6_lqcs7"]
+[ext_resource type="Texture2D" uid="uid://itjsrpknji4n" path="res://assets/faces/eye23.png" id="7_6wqmm"]
+[ext_resource type="Texture2D" uid="uid://df280jj2ulk4c" path="res://assets/faces/mouth1.png" id="8_ncewb"]
+[ext_resource type="Texture2D" uid="uid://dj4dsiajq0bts" path="res://assets/faces/mouth2.png" id="9_bqynn"]
+[ext_resource type="Texture2D" uid="uid://4lb6gew77vn" path="res://assets/faces/mouth3.png" id="10_c1330"]
+[ext_resource type="Texture2D" uid="uid://cxol8niqjgny2" path="res://assets/tele.png" id="12_bjh3o"]
 
-[node name="Buddy" type="Label" unique_id=471245187]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 16
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fy8"]
+atlas = ExtResource("2_yboym")
+region = Rect2(0, 0, 25, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4rdd"]
+atlas = ExtResource("3_bjh3o")
+region = Rect2(0, 0, 25, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy6ym"]
+atlas = ExtResource("4_fqw5r")
+region = Rect2(0, 0, 25, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvmi1"]
+atlas = ExtResource("5_387ti")
+region = Rect2(0, 0, 25, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra31n"]
+atlas = ExtResource("6_lqcs7")
+region = Rect2(0, 0, 25, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fckq"]
+atlas = ExtResource("7_6wqmm")
+region = Rect2(0, 0, 25, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqpeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4fy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4rdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy6ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4rdd")
+}],
+"loop": true,
+"name": &"eye1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvmi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra31n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fckq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra31n")
+}],
+"loop": true,
+"name": &"eye2",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc6v6"]
+atlas = ExtResource("8_ncewb")
+region = Rect2(0, 0, 28, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj2ym"]
+atlas = ExtResource("9_bqynn")
+region = Rect2(0, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcly5"]
+atlas = ExtResource("10_c1330")
+region = Rect2(0, 0, 21, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5jcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc6v6")
+}],
+"loop": true,
+"name": &"mouth1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj2ym")
+}],
+"loop": true,
+"name": &"mouth2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcly5")
+}],
+"loop": true,
+"name": &"mouth3",
+"speed": 5.0
+}]
+
+[node name="Buddy" type="Node2D" unique_id=525454601]
+z_index = 55
 script = ExtResource("1_hprr6")
+angleLimit = 10.0
+amplitude = 4.0
+
+[node name="Label" type="Label" parent="." unique_id=1309716672]
+offset_left = -560.0
+offset_top = -128.0
+offset_right = -483.0
+offset_bottom = -105.0
+scale = Vector2(2.2537212, 2.2537212)
+theme_override_fonts/font = ExtResource("2_bjh3o")
+theme_override_font_sizes/font_size = 25
 
 [node name="RandomizerTimer" type="Timer" parent="." unique_id=817302185]
+wait_time = 7.0
 autostart = true
 
 [node name="CloseDialogTimer" type="Timer" parent="." unique_id=1742645528]
 wait_time = 3.0
 one_shot = true
+
+[node name="face" type="Sprite2D" parent="." unique_id=2115605582]
+z_index = -1
+position = Vector2(0, -48)
+scale = Vector2(0.61818635, 1.1206387)
+texture = ExtResource("12_bjh3o")
+
+[node name="anchor" type="Node2D" parent="face" unique_id=138787391]
+position = Vector2(0, 14.277573)
+
+[node name="eye1" type="AnimatedSprite2D" parent="face/anchor" unique_id=1817459197]
+position = Vector2(-44.48497, 0.4461727)
+scale = Vector2(1.6176353, 0.8923483)
+sprite_frames = SubResource("SpriteFrames_mqpeo")
+animation = &"eye1"
+
+[node name="eye2" type="AnimatedSprite2D" parent="face/anchor" unique_id=136759054]
+position = Vector2(33.161522, 0.4461727)
+scale = Vector2(1.6176353, 0.8923483)
+sprite_frames = SubResource("SpriteFrames_mqpeo")
+animation = &"eye1"
+frame = 1
+frame_progress = 0.80028975
+
+[node name="mouth" type="AnimatedSprite2D" parent="face" unique_id=451882802]
+position = Vector2(0, 49.971504)
+scale = Vector2(1.6176353, 0.8923483)
+sprite_frames = SubResource("SpriteFrames_e5jcq")
+animation = &"mouth1"
+
+[node name="pos0" type="Node2D" parent="." unique_id=776305126]
 
 [connection signal="timeout" from="RandomizerTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CloseDialogTimer" to="." method="_on_close_dialog_timer_timeout"]
