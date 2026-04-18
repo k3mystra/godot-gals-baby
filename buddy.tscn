@@ -137,6 +137,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="face" type="Sprite2D" parent="." unique_id=2115605582]
+light_mask = 2
 z_index = -1
 position = Vector2(0, -48)
 scale = Vector2(0.61818635, 1.1206387)
