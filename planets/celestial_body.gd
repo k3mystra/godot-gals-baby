@@ -3,11 +3,18 @@ extends StaticBody2D
 @export var rocket_group: String = "rocket"
 @onready var rockets: Array[Node]
 
+@onready var GravityLight = $PointLight2D
+@onready var LightSize = $PointLight2D.scale
+
 @export var mass: float = 10
 @export var gravity_constant: float = 9
 @export var is_mass_adjustable: bool = true
 
 @export var planet_anims: Array[SpriteFrames]
+
+@export var GravityArrow : PackedScene
+@export var arrow_count: int = 12
+@export var orbit_radius: float = 150.0
 
 var previous_mouse_position: Vector2
 var is_dragging: bool = false
@@ -18,11 +25,39 @@ func _ready() -> void:
 	GlobalSignal.goal_reached.connect(deactivate_everything)
 	#GlobalSignal.remove_current_rocket.connect(clear_rocket)
 	GlobalSignal.print_rocket_amount.connect(print_rocekt_amount)
+	GlobalSignal.restart_level.connect(exit_planet_group)
 
 	update_mass_label()
 	deactivate_everything()
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
 	$AnimatedSprite.play("default")
+	
+	mass = 0
+	#spawn_gravity_arrows()
+
+func exit_planet_group():
+	remove_from_group("planet")
+
+func spawn_gravity_arrows():
+	for i in range(arrow_count):
+		# 1. Calculate the angle for this specific arrow
+		var angle = i * (PI * 2 / arrow_count)
+		
+		# 2. Calculate the position using polar coordinates
+		var x = cos(angle) * orbit_radius
+		var y = sin(angle) * orbit_radius
+		var pos = Vector2(x, y)
+		
+		# 3. Instantiate the arrow
+		var arrow = GravityArrow.instantiate()
+		add_child(arrow)
+		
+		# 4. Set position and rotation
+		arrow.position = pos
+		
+		# Look_at usually points the +X axis (right) toward the target
+		# If your arrow sprite points up, you might need to add/subtract 90 degrees
+		arrow.rotation = angle + PI # PI (180 deg) points them inward toward center
 
 #This is for debug why rocket doesnt work when loading new level
 func print_rocekt_amount():
@@ -43,13 +78,11 @@ func activate_everything():
 
 func _physics_process(_delta: float) -> void:
 
-	#This is a very ugly solution, for some reason, the old rocket will always be there even if I tried to clear the array.
-	#But if it works, it works
 	var target_rocket
 	if rockets.size() == 1:
 		target_rocket = rockets[0]
 	else:
-		target_rocket = rockets[1]
+		push_error("FUACKKKK")
 	var vec_to_rocket = position - target_rocket.position
 	# Gravity equation, with distance scaling
 	var force_amount = (gravity_constant * target_rocket.mass * mass) / vec_to_rocket.length_squared() * 100
@@ -76,9 +109,10 @@ func _input(event: InputEvent) -> void:
 		is_dragging = false
 
 	if event is InputEventMouseMotion:
-		var drag_amount = -(event.position - previous_mouse_position).y
+		var drag_amount = (event.position - previous_mouse_position).x
 		# Avoid mass dropping to less than 0
-		mass = max(mass + drag_amount / 100, 0.0)
+		mass = max(mass + drag_amount / 75, 0.0)
+		previous_mouse_position = event.position
 		update_mass_label()
 
 	if event is InputEventKey:
@@ -88,3 +122,5 @@ func _input(event: InputEvent) -> void:
 func update_mass_label() -> void:
 	if is_mass_adjustable:
 		$Label.text = "%.2f" % mass
+		var ratio = 1.0 + (mass/10)
+		GravityLight.scale = LightSize * ratio

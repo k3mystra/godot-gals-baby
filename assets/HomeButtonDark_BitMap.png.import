@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://be70hbgyj18vs"
+path="res://.godot/imported/HomeButtonDark_BitMap.png-b40cdbf9888cc7a19f82c2f7dd90bc25.res"
+
+[deps]
+
+source_file="res://assets/HomeButtonDark_BitMap.png"
+dest_files=["res://.godot/imported/HomeButtonDark_BitMap.png-b40cdbf9888cc7a19f82c2f7dd90bc25.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

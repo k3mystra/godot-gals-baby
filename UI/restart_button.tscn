@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ckcnswqomw7j2"]
+
+[ext_resource type="Script" uid="uid://c5ct0v4scjcfv" path="res://UI/restart_button.gd" id="1_4qvae"]
+[ext_resource type="Texture2D" uid="uid://ck8j8oyjsktiv" path="res://assets/Restart1.png" id="1_j0q52"]
+[ext_resource type="Texture2D" uid="uid://dahv5ae2l1b2" path="res://assets/Restart2.png" id="2_4qvae"]
+
+[node name="RestartButton" type="Control" unique_id=1773169607]
+layout_mode = 3
+anchor_right = 0.067
+anchor_bottom = 0.119
+offset_right = -0.6399994
+offset_bottom = -0.5200043
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qvae")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=391450963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -112.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+texture_normal = ExtResource("1_j0q52")
+texture_pressed = ExtResource("2_4qvae")
+texture_hover = ExtResource("2_4qvae")
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]

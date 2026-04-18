@@ -30,18 +30,23 @@ func _ready() -> void:
 	exhaust = $Exhaust
 	exhaust.play("empty vroom vroom")
 	GlobalSignal.goal_reached.connect(stop_gameplay)
+	GlobalSignal.out_of_bound.connect(die)
+	GlobalSignal.restart_level.connect(exit_rocket_group)
+
+func exit_rocket_group():
+	remove_from_group("rocket")
 
 func lift_off():
 	freeze = false
 	GlobalSignal.rocket_launched.emit()
 
 
-
 func _input(event):
 	if current_state == State.READY:
-		if event.is_action_pressed("ENTER_KEY"):
-			lift_off()
-			current_state = State.IS_LAUNCHED
+		if event is InputEventKey:
+			if event.keycode == KEY_F and event.is_released():
+				lift_off()
+				current_state = State.IS_LAUNCHED
 	if current_state == State.IS_LAUNCHED:
 		if event.is_action_pressed("SPACEBAR_KEY"):
 			is_thrusting = true
@@ -75,8 +80,7 @@ func stop_gameplay():
 
 var explosion_position = Vector2(-6,-52)
 
-func _on_body_entered(body: Node2D) -> void:
-	stop_gameplay()
+func die():
 	var randSound = randi_range(0, 4)
 	thrusterloop.stop()
 	match randSound:
@@ -91,6 +95,11 @@ func _on_body_entered(body: Node2D) -> void:
 	new_explosion.play("3")
 	hide()
 	GlobalSignal.dead.emit()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	stop_gameplay()
+	die()
 
 func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PASTE THIS
 	var p = AudioStreamPlayer2D.new() # make new audioplayer
