@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cykrjhhshprww"
-path="res://.godot/imported/Face1_IncreaseMass.png-0187b61ae3392e18077e324757e249f4.ctex"
+uid="uid://cln8ijbmwdki8"
+path="res://.godot/imported/mouth4.png-cd5e9af51ae653542950c10c5377cae2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/faces/Face1_IncreaseMass.png"
-dest_files=["res://.godot/imported/Face1_IncreaseMass.png-0187b61ae3392e18077e324757e249f4.ctex"]
+source_file="res://assets/faces/mouth4.png"
+dest_files=["res://.godot/imported/mouth4.png-cd5e9af51ae653542950c10c5377cae2.ctex"]
 
 [params]
 

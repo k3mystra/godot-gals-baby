@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxs42qmllx712" path="res://Goal/goal.gd" id="1_3iwka"]
 [ext_resource type="Texture2D" uid="uid://benj4lki6e3xi" path="res://assets/Flags.png" id="2_3iwka"]
+[ext_resource type="Texture2D" uid="uid://butlahjrs5tcl" path="res://placeholder/star.png" id="3_y78nh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y78nh"]
 atlas = ExtResource("2_3iwka")
@@ -38,6 +39,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iwka"]
 size = Vector2(14.510257, 36.785133)
 
+[sub_resource type="Curve" id="Curve_po8gq"]
+_limits = [-314.31, 460.76, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.010526314, -0.84269655), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Goal" type="Node2D" unique_id=586600952]
 scale = Vector2(3, 3)
 script = ExtResource("1_3iwka")
@@ -57,5 +63,24 @@ frame_progress = 0.37598228
 position = Vector2(15.666667, -31)
 scale = Vector2(2.4350593, 1.6854637)
 shape = SubResource("RectangleShape2D_3iwka")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=601704974]
+emitting = false
+amount = 50
+texture = ExtResource("3_y78nh")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+initial_velocity_min = 58.82
+initial_velocity_max = 460.78
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color = Color(18.892157, 18.892157, 18.892157, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_po8gq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
