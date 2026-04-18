@@ -1,7 +1,7 @@
-extends Node2D
+class_name buddy extends Node2D
 
 @export var planet_group: String = "planet"
-@export var randomizer_chance_per_second: float = 0.9
+@export var randomizer_chance_per_second: float = 0.1
 @onready var planets: Array[Node] = []
 @onready var eye1 = $face/anchor/eye1
 @onready var eye2 = $face/anchor/eye2
@@ -16,6 +16,8 @@ var clock = 0.0
 var frequency : float
 @export var amplitude : float
 
+var active : bool = false
+
 func _ready() -> void:
 	frequency = randf_range(1, 4)
 	amplitude += randf_range(-2, 2)
@@ -26,6 +28,10 @@ func _ready() -> void:
 			planets.append(i)
 	randEye(randi_range(0, 1), randi_range(0, 1))
 	randMouth(randi_range(0, 2))
+	
+	GlobalSignal.rocket_launched.connect(func(): active = true)
+	GlobalSignal.goal_reached.connect(func(): active = false)
+	GlobalSignal.dead.connect(func(): active = false)
 
 func _process(delta: float) -> void:
 	clock += delta
@@ -36,11 +42,12 @@ func _process(delta: float) -> void:
 	
 
 func _on_timer_timeout() -> void:
-	var result: bool = randf() <= randomizer_chance_per_second
-	if (result):
-		label.text = "I'll change that for you"
-		randomize_mass()
-		$CloseDialogTimer.start()
+	if active:
+		var result: bool = randf() <= randomizer_chance_per_second
+		if (result):
+			label.text = "I'll change that for you"
+			randomize_mass()
+			$CloseDialogTimer.start()
 
 func randomize_mass() -> void:
 	var amount = randf_range(0, 55)
