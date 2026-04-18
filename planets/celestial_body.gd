@@ -16,6 +16,8 @@ extends StaticBody2D
 @export var arrow_count: int = 12
 @export var orbit_radius: float = 150.0
 
+@onready var sound = $sound
+
 var previous_mouse_position: Vector2
 var is_dragging: bool = false
 
@@ -107,9 +109,16 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("ui_touch"):
 		previous_mouse_position = Vector2()
 		is_dragging = false
+		sound.stop()
 
 	if event is InputEventMouseMotion:
+		if !sound.playing:
+			sound.play()
 		var drag_amount = (event.position - previous_mouse_position).x
+		print ("drag amount is ", drag_amount)
+		var motion_strength = event.relative.length()
+		var target_pitch = remap(motion_strength, 0, 50, 0.8, 2.0)
+		sound.pitch_scale = clamp(target_pitch, 0.5, 3.0)
 		# Avoid mass dropping to less than 0
 		mass = max(mass + drag_amount / 75, 0.0)
 		previous_mouse_position = event.position
