@@ -1,16 +1,14 @@
-[gd_scene format=3 uid="uid://d1eylo28uslh6"]
+[gd_scene format=3 uid="uid://ccghc7ryvyl7s"]
 
-[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_bhyyx"]
-[ext_resource type="PackedScene" uid="uid://r52r5hvalytv" path="res://planets/planet.tscn" id="2_s04we"]
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_cb8d3"]
 
-[node name="Main" unique_id=294610226 instance=ExtResource("1_bhyyx")]
+[node name="Main" unique_id=294610226 instance=ExtResource("1_cb8d3")]
 
 [node name="Rocket" parent="." index="0" unique_id=384636652]
-position = Vector2(-416, 192)
-rotation = -1.0471976
+position = Vector2(-255, -150)
 
 [node name="Goal" parent="." index="1" unique_id=586600952]
-position = Vector2(155, 152)
+position = Vector2(33, 165)
 
-[node name="Planet" parent="." index="4" unique_id=730577519 instance=ExtResource("2_s04we")]
-position = Vector2(-104, 40)
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+position = Vector2(0, 0)
