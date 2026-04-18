@@ -84,11 +84,11 @@ func die():
 	var randSound = randi_range(0, 4)
 	thrusterloop.stop()
 	match randSound:
-		0: play_sound(explode1, 1, 0)
-		1: play_sound(explode2, 1, 0)
-		2: play_sound(explode3, 1, 0)
-		3: play_sound(explode4, 1, 0)
-		4: play_sound(explode5, 1, 0)
+		0: play_sound(explode1, 1, -10)
+		1: play_sound(explode2, 1, -10)
+		2: play_sound(explode3, 1, -10)
+		3: play_sound(explode4, 1, -10)
+		4: play_sound(explode5, 1, -10)
 	var new_explosion = explosion.instantiate() as Explosion
 	get_parent().add_child(new_explosion)
 	new_explosion.global_position = global_position + explosion_position
@@ -105,7 +105,7 @@ func play_sound (stream: AudioStream, pitch: float, volume: float): # YOU CAN JU
 	var p = AudioStreamPlayer2D.new() # make new audioplayer
 	p.stream = stream
 	p.pitch_scale = pitch + randf_range(-0.3, 0.3)
-	p.volume_db = volume
+	p.volume_db = volume - 10
 	add_child(p) # adds to the world
 	p.play() # play first
 	p.finished.connect(p.queue_free) # remove itself after finished playing

@@ -2,13 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://b6l5ri4u2xynj" path="res://fonts/PixelOperator8-Bold.ttf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d0m8onjxoi3ja" path="res://main_menu.gd" id="1_7vrkn"]
-[ext_resource type="PackedScene" uid="uid://bbpvuph6opvpm" path="res://Levels/level_2.tscn" id="3_dy7ct"]
-[ext_resource type="Texture2D" uid="uid://jbfqcb013wu" path="res://rocket/RocketAssetFromItch/rocket6.png" id="3_fu7sn"]
-[ext_resource type="PackedScene" uid="uid://ccghc7ryvyl7s" path="res://Levels/level_3.tscn" id="4_0k4wn"]
-[ext_resource type="PackedScene" uid="uid://dp3ijhg7vfi0c" path="res://Levels/level_1.tscn" id="4_0o4t1"]
+[ext_resource type="PackedScene" uid="uid://ccghc7ryvyl7s" path="res://Levels/level_6.tscn" id="4_0k4wn"]
+[ext_resource type="PackedScene" uid="uid://dp3ijhg7vfi0c" path="res://Levels/level_4.tscn" id="4_0o4t1"]
 [ext_resource type="FontFile" uid="uid://bq74870w5ht4b" path="res://fonts/boldpixels.ttf" id="4_jix8l"]
-[ext_resource type="PackedScene" uid="uid://nl2vd7jx2psw" path="res://Levels/level_4.tscn" id="5_iotk1"]
+[ext_resource type="PackedScene" uid="uid://nl2vd7jx2psw" path="res://Levels/level_5.tscn" id="5_iotk1"]
+[ext_resource type="PackedScene" uid="uid://ccghc7ryvyl7s" path="res://Levels/level_7.tscn" id="5_w44g7"]
 [ext_resource type="Texture2D" uid="uid://3h3dt8fm2t4h" path="res://assets/play.png" id="6_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://cm24oxpmypfkn" path="res://assets/Rocket.png" id="7_iotk1"]
 [ext_resource type="Texture2D" uid="uid://br8ctcgrg6174" path="res://assets/playdark.png" id="7_j5v2v"]
 [ext_resource type="Texture2D" uid="uid://30ach5j2c7pj" path="res://menu/black.png" id="8_dy7ct"]
 [ext_resource type="BitMap" uid="uid://dmwxcn2twvs0m" path="res://assets/play1.png" id="8_iotk1"]
@@ -16,7 +16,7 @@
 
 [node name="main_menu" type="Node2D" unique_id=1606804441]
 script = ExtResource("1_7vrkn")
-levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("3_dy7ct"), ExtResource("4_0k4wn"), ExtResource("5_iotk1")])
+levels = Array[PackedScene]([ExtResource("4_0o4t1"), ExtResource("5_iotk1"), ExtResource("4_0k4wn"), ExtResource("5_w44g7")])
 bg_music_volume = -15.0
 
 [node name="background" type="Sprite2D" parent="." unique_id=875876304]
@@ -32,12 +32,13 @@ position = Vector2(832, 0)
 z_index = 12
 position = Vector2(-360, 16)
 scale = Vector2(1.5829271, 1.5829271)
-texture = ExtResource("3_fu7sn")
+texture = ExtResource("7_iotk1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1276687762]
 zoom = Vector2(1.5, 1.5)
 
 [node name="main" type="Control" parent="." unique_id=425663841]
+z_index = 12
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -101,6 +102,7 @@ horizontal_alignment = 1
 
 [node name="select" type="GridContainer" parent="." unique_id=1283662250]
 visible = false
+z_index = 12
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

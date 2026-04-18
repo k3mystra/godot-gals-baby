@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://1vnnjof384fp" path="res://rocket/rocket.gd" id="1_vaqdw"]
 [ext_resource type="Texture2D" uid="uid://b7xlgephf2kkl" path="res://rocket/Animated_Exhaust_pixel_Pack_Free/Exhaust_03/exhaust_03_spritesheet.png" id="3_c7012"]
+[ext_resource type="Texture2D" uid="uid://cm24oxpmypfkn" path="res://assets/Rocket.png" id="3_iwpda"]
 [ext_resource type="Script" uid="uid://edyytby3mpe1" path="res://rocket/exhaust.gd" id="4_gxqvl"]
 [ext_resource type="PackedScene" uid="uid://dyeg6t3ohjg4t" path="res://rocket/explosion.tscn" id="5_q8yy8"]
-[ext_resource type="Texture2D" uid="uid://b205eu8neqefg" path="res://rocket/RocketAssetFromItch/rocket3.png" id="5_smobc"]
 [ext_resource type="AudioStream" uid="uid://dkpx8o7drwxep" path="res://sounds/thrusters.ogg" id="6_iwpda"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vaqdw"]
 radius = 7.0
-height = 36.0
+height = 86.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxqvl"]
 atlas = ExtResource("3_c7012")
@@ -347,26 +347,31 @@ explosion = ExtResource("5_q8yy8")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730089916]
+z_index = 4096
 position = Vector2(-5, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_vaqdw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283426119]
-light_mask = 2
-z_index = 1
+[node name="Rocket" type="Sprite2D" parent="." unique_id=1558138441]
+light_mask = 0
+z_index = 4
 rotation = 1.5707964
-texture = ExtResource("5_smobc")
+texture = ExtResource("3_iwpda")
 
 [node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=75350880]
 light_mask = 2
-position = Vector2(-52, 0)
+z_index = 2
+position = Vector2(-93, 0)
 rotation = 1.5707964
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.46198037, 0.46198037)
 sprite_frames = SubResource("SpriteFrames_3pfuj")
 animation = &"vroom vroom"
+frame = 7
+frame_progress = 1.0
 script = ExtResource("4_gxqvl")
 
 [node name="thrusterloop" type="AudioStreamPlayer2D" parent="." unique_id=2119892153]
 stream = ExtResource("6_iwpda")
+volume_db = -20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

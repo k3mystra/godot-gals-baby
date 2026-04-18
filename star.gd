@@ -13,13 +13,15 @@ func _ready() -> void:
 	if rarity != 0:
 		startype = randi_range(0, 1)
 	else:
-		startype = randi_range(2, 4)
+		startype = randi_range(2, 6)
 	match startype:
 		0: staranim.play("star1")
 		1: staranim.play("star2")
 		2: staranim.play("planet1")
 		3: staranim.play("planet2")
-		4: staranim.play("hole")
+		4: staranim.play("planet3")
+		5:staranim.play("planet4")
+		6: staranim.play("hole")
 	show()
 	add_to_group("stars")
 	if staranim.animation == "hole":

@@ -5,6 +5,8 @@ class_name Goal extends Node2D
 #PRELOAD SOUNDS HERE
 var win1 = preload("res://sounds/win1.ogg")
 var win2 = preload("res://sounds/win2.ogg")
+var win3 = preload("res://sounds/win3.ogg")
+var win4 = preload("res://sounds/win4.ogg")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rocket"):
