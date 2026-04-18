@@ -18,7 +18,7 @@ font_size = 90
 
 [sub_resource type="LabelSettings" id="LabelSettings_8acau"]
 font = ExtResource("3_ek1vm")
-font_size = 63
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_47ct4"]
 font = ExtResource("3_ek1vm")
@@ -101,11 +101,12 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PressSpaceToThrust" type="Label" parent="." unique_id=554198480]
-offset_left = 40.0
+offset_left = 48.0
 offset_top = 976.0
-offset_right = 632.0
-offset_bottom = 1032.0
-text = "Press Space to Thrust"
+offset_right = 867.0
+offset_bottom = 1091.0
+text = "Press Space to Thrust
+Drag planets to alter gravity"
 label_settings = SubResource("LabelSettings_8acau")
 
 [node name="PressFToStart" type="Control" parent="." unique_id=66651722]

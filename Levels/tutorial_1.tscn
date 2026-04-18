@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bsoctt1vhwajf"]
+
+[ext_resource type="PackedScene" uid="uid://das5nwsxp6wxh" path="res://level_template/main.tscn" id="1_fc8cy"]
+
+[node name="Tutorial1" unique_id=294610226 instance=ExtResource("1_fc8cy")]
+
+[node name="Rocket" parent="." index="0" unique_id=384636652]
+position = Vector2(-424, 0)
+
+[node name="Goal" parent="." index="1" unique_id=586600952]
+position = Vector2(272, 8)
+
+[node name="Camera2D" parent="." index="2" unique_id=1573105880]
+zoom = Vector2(1.5, 1.5)

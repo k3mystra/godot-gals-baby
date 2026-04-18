@@ -17,7 +17,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0" unique_id=1487429824]
 light_mask = 2
-z_index = 1
+z_index = 2
 sprite_frames = ExtResource("6_1fdfk")
 autoplay = "default"
 
