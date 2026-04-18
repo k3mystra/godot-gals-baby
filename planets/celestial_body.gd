@@ -1,4 +1,4 @@
-extends StaticBody2D
+class_name CelestialBody extends StaticBody2D
 
 @export var rocket_group: String = "rocket"
 @onready var rockets: Array[Node]

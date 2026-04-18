@@ -873,7 +873,7 @@ animations = [{
 }]
 
 [node name="GravityArrows" type="Node2D" unique_id=1447785326]
-z_index = 4
+z_index = 1
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_jicl5")
 
