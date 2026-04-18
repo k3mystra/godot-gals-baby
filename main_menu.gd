@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 	if timer <= 0 and spawn_star:
 		print ("do the thing")
 		spawner.position.y = randf_range(-360, 360)
-		timer = randf_range(0.06, 1.2)
+		timer = randf_range(0, 1.2)
 		var stars = star.instantiate()
 		stars.global_position = spawner.global_position
 		get_parent().add_child(stars)
@@ -151,6 +151,7 @@ func play_sound (stream: AudioStream, pitch: float): # YOU CAN JUST COPY AND PAS
 	var p = AudioStreamPlayer2D.new() # make new audioplayer
 	p.stream = stream
 	p.pitch_scale = pitch
+	p.volume_db = -30
 	add_child(p) # adds to the world
 	p.play() # play first
 	p.finished.connect(p.queue_free) # remove itself after finished playing
