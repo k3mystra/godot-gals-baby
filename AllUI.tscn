@@ -175,6 +175,8 @@ offset_left = 192.0
 offset_top = 32.0
 offset_right = 208.0
 offset_bottom = 48.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="RestartButton" parent="." unique_id=1773169607 instance=ExtResource("6_6g6po")]
 anchors_preset = 0
@@ -184,3 +186,5 @@ offset_left = 368.0
 offset_top = 64.0
 offset_right = 431.68
 offset_bottom = 127.74
+grow_horizontal = 1
+grow_vertical = 1

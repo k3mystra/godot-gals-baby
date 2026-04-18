@@ -31,6 +31,10 @@ func _ready() -> void:
 	exhaust.play("empty vroom vroom")
 	GlobalSignal.goal_reached.connect(stop_gameplay)
 	GlobalSignal.out_of_bound.connect(die)
+	GlobalSignal.restart_level.connect(exit_rocket_group)
+
+func exit_rocket_group():
+	remove_from_group("rocket")
 
 func lift_off():
 	freeze = false
