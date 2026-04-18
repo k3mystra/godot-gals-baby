@@ -25,6 +25,7 @@ func _ready() -> void:
 	GlobalSignal.goal_reached.connect(deactivate_everything)
 	#GlobalSignal.remove_current_rocket.connect(clear_rocket)
 	GlobalSignal.print_rocket_amount.connect(print_rocekt_amount)
+	GlobalSignal.restart_level.connect(exit_planet_group)
 
 	update_mass_label()
 	deactivate_everything()
@@ -33,6 +34,9 @@ func _ready() -> void:
 	
 	mass = 0
 	#spawn_gravity_arrows()
+
+func exit_planet_group():
+	remove_from_group("planet")
 
 func spawn_gravity_arrows():
 	for i in range(arrow_count):
@@ -74,13 +78,11 @@ func activate_everything():
 
 func _physics_process(_delta: float) -> void:
 
-	#This is a very ugly solution, for some reason, the old rocket will always be there even if I tried to clear the array.
-	#But if it works, it works
 	var target_rocket
 	if rockets.size() == 1:
 		target_rocket = rockets[0]
 	else:
-		target_rocket = rockets[1]
+		push_error("FUACKKKK")
 	var vec_to_rocket = position - target_rocket.position
 	# Gravity equation, with distance scaling
 	var force_amount = (gravity_constant * target_rocket.mass * mass) / vec_to_rocket.length_squared() * 100

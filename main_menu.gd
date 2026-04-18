@@ -118,6 +118,9 @@ func _onLevelButtonPressed(level_name: String):
 func load_level(index: int):
 	if active_level_node:
 		active_level_node.queue_free()
+	
+	#making sure the queue free happens first bro, this is horrendous	
+	await get_tree().process_frame
 
 	current_level_index = index
 	# 2. Instance the new level
