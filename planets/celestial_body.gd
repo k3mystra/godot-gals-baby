@@ -16,10 +16,10 @@ class_name CelestialBody extends StaticBody2D
 @export var arrow_count: int = 12
 @export var orbit_radius: float = 60.0
 
-@onready var sound = $sound
+@export var scroll_multiplier: float = 0.5
 
-var previous_mouse_position: Vector2
-var is_dragging: bool = false
+@onready var sound = $sound
+var is_selected: bool = false
 
 func _ready() -> void:
 	rockets = (get_tree().get_nodes_in_group(rocket_group))
@@ -87,39 +87,28 @@ func _physics_process(_delta: float) -> void:
 	target_rocket.apply_force(force)
 
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_pressed("ui_touch"):
-		# get_tree().set_input_as_handled()
-		previous_mouse_position = event.position
-		is_dragging = true
-
-
 func _input(event: InputEvent) -> void:
 	if not is_mass_adjustable:
 		return
 
-	if not is_dragging:
-		return
-
-	if event.is_action_released("ui_touch"):
-		previous_mouse_position = Vector2()
-		is_dragging = false
-		sound.stop()
-
-	if event is InputEventMouseMotion:
-		if !sound.playing:
-			sound.play()
-
-		var angle = get_angle_to(event.position)
-		rotate(angle)
-		var drag_amount = (event.position - previous_mouse_position).x
+	if event is InputEventMouseButton and is_selected:
+		print(event.position, get_global_mouse_position(), position)
+		var drag_amount
+		if (event.button_index == MOUSE_BUTTON_WHEEL_UP):
+			drag_amount = scroll_multiplier
+		elif (event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
+			drag_amount = -scroll_multiplier
+		else:
+			return
 		print ("drag amount is ", drag_amount)
-		var motion_strength = event.relative.length()
-		var target_pitch = remap(motion_strength, 0, 50, 0.8, 2.0)
-		sound.pitch_scale = clamp(target_pitch, 0.5, 3.0)
+		
+		# SFX code on drag
+		#var motion_strength = event.relative.length()
+		#var target_pitch = remap(motion_strength, 0, 50, 0.8, 2.0)
+		#sound.pitch_scale = clamp(target_pitch, 0.5, 3.0)
+		
 		# Avoid mass dropping to less than 0
-		mass = max(mass + drag_amount / 75, 0.0)
-		previous_mouse_position = event.position
+		mass = max(mass + drag_amount, 0.0)
 		update_mass_label()
 
 	if event is InputEventKey:
@@ -143,3 +132,11 @@ func update_mass_label() -> void:
 				i.show()	
 				i.speed = speed_ratio
 				i.scale = original_arrow_scale * ratio
+
+
+func _on_mouse_entered() -> void:
+	is_selected = true
+
+
+func _on_mouse_exited() -> void:
+	is_selected = false

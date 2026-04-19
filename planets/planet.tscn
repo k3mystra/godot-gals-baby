@@ -44,3 +44,6 @@ texture = ExtResource("4_6sy1c")
 [node name="sound" type="AudioStreamPlayer2D" parent="." index="4" unique_id=2139479626]
 stream = ExtResource("5_cwbxm")
 volume_db = -10.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

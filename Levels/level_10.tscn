@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvs6qxhxy2m1k" path="res://Goal/goal.tscn" id="2_wn6d5"]
 [ext_resource type="PackedScene" uid="uid://bly7mogf28eh4" path="res://AllUI.tscn" id="3_i2ob1"]
 [ext_resource type="PackedScene" uid="uid://bm8soyhyh4gx0" path="res://planets/black-hole.tscn" id="3_w76ts"]
-[ext_resource type="Script" path="res://level_template/WorldCollider.gd" id="4_d8hbd"]
+[ext_resource type="Script" uid="uid://bebr2kjv5fd1g" path="res://level_template/WorldCollider.gd" id="4_d8hbd"]
 [ext_resource type="PackedScene" uid="uid://dsi0t7ap3skx7" path="res://buddy.tscn" id="4_k4mr7"]
 [ext_resource type="Texture2D" uid="uid://b3vxf6v4fekmr" path="res://assets/Starfield_04-1024x1024.png" id="5_k83ce"]
 
