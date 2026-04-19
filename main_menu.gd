@@ -22,7 +22,8 @@ var dir = 1.0
 var timer = 1.0
 var spawn_star = true
 
-@export var levels: Array[PackedScene] # Drag your .tscn files here in the Inspector
+@export var levels: Array[PackedScene]
+@export var winning_scene : PackedScene
 
 var current_level_index: int = -1
 var active_level_node: Node = null
@@ -35,6 +36,8 @@ var current_state : GameState = GameState.IN_MENU
 #PRELOAD SOUNDS HERE
 var click1 = preload("res://sounds/button1.ogg")
 var click2 = preload("res://sounds/button2.ogg")
+
+var passed_level :Array[int] = []
 
 enum GameState {
 	IN_MENU,
@@ -134,14 +137,43 @@ func load_level(index: int):
 	level_container.add_child(active_level_node)
 	print("Loaded Level: ", str(index + 1))
 
-func _on_level_complete():
-	current_level_index += 1
-
-	if current_level_index < levels.size():
-		call_deferred("load_level", current_level_index)
-	else:
-		print("You win the whole game!")
+func add_passed_level() -> int:
+	var found : bool
+	for i in passed_level:
+		if i == current_level_index:
+			found = true
+	if found == false:
+		passed_level.append(current_level_index)
+	if passed_level.size() == levels.size():
 		current_state = GameState.WIN
+		if active_level_node:
+			active_level_node.queue_free()
+		
+		#making sure the queue free happens first bro, this is horrendous	
+		await get_tree().process_frame
+
+		current_level_index = -1
+		# 2. Instance the new level
+		var level_resource = winning_scene
+		active_level_node = level_resource.instantiate()
+
+		# 3. Add it to the container
+		level_container.add_child(active_level_node)
+		print("win all")
+		return 0
+	return 1
+
+		
+
+func _on_level_complete():
+	var result = await add_passed_level()
+	if result == 1:	
+		current_level_index += 1
+
+		if current_level_index < levels.size():
+			call_deferred("load_level", current_level_index)
+		else:
+			print("You win the whole game!")
 
 func _title_move(clock: float):
 	lost.position.y = cos(clock * frequency/2) * amplitude

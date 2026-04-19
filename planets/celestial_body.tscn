@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://gaoonmhv48u7"]
+[gd_scene format=3 uid="uid://1mwx5tuo5f6s"]
 
 [ext_resource type="Script" uid="uid://s4xato8btq7m" path="res://planets/celestial_body.gd" id="1_3xtoy"]
 [ext_resource type="SpriteFrames" uid="uid://4owruu7c643g" path="res://planets/earth_spriteframes.tres" id="2_5pkp4"]

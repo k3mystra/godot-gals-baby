@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r52r5hvalytv"]
 
-[ext_resource type="PackedScene" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
+[ext_resource type="PackedScene" uid="uid://1mwx5tuo5f6s" path="res://planets/celestial_body.tscn" id="1_xgwrp"]
 [ext_resource type="PackedScene" uid="uid://cj8r0yhsbv5wt" path="res://planets/gravity_arrows.tscn" id="3_60e5m"]
 [ext_resource type="Texture2D" uid="uid://lfan6cwgp2uw" path="res://planets/planet-template.png" id="4_6sy1c"]
 [ext_resource type="AudioStream" uid="uid://bgv7go7apx5ba" path="res://sounds/resize.ogg" id="5_cwbxm"]

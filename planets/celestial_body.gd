@@ -29,6 +29,7 @@ func _ready() -> void:
 	GlobalSignal.print_rocket_amount.connect(print_rocekt_amount)
 	GlobalSignal.restart_level.connect(exit_planet_group)
 	deactivate_everything()
+	#$AnimatedSprite.sprite_frames = planet_anims[0]
 	$AnimatedSprite.sprite_frames = planet_anims[randi() % planet_anims.size()]
 	$AnimatedSprite.play("default")
 	spawn_gravity_arrows()
@@ -74,7 +75,6 @@ func activate_everything():
 	set_physics_process(true)
 
 func _physics_process(_delta: float) -> void:
-
 	var target_rocket
 	if rockets.size() == 1:
 		target_rocket = rockets[0]
@@ -109,6 +109,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if !sound.playing:
 			sound.play()
+
+		var angle = get_angle_to(event.position)
+		rotate(angle)
 		var drag_amount = (event.position - previous_mouse_position).x
 		print ("drag amount is ", drag_amount)
 		var motion_strength = event.relative.length()
