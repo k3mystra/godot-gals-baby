@@ -108,7 +108,7 @@ func _input(event: InputEvent) -> void:
 		#sound.pitch_scale = clamp(target_pitch, 0.5, 3.0)
 		
 		# Avoid mass dropping to less than 0
-		mass = max(mass + drag_amount, 0.0)
+		mass = max((mass + (drag_amount* scale.x)) , 0.0)
 		update_mass_label()
 
 	if event is InputEventKey:
@@ -116,22 +116,23 @@ func _input(event: InputEvent) -> void:
 			print(rockets.size())
 
 func update_mass_label() -> void:
-	var original_arrow_scale = Vector2(0.25,0.25)
+
 	$Label.text = "%.2f" % mass
-	var ratio = 1.0 + (mass/10)
+	var ratio = 1.0 + (mass/20)
 	GravityLight.scale = LightSize * (ratio)
-	var speed_ratio = 1.0 + (mass/10)
+	var speed_ratio = 1.0 + (mass/40)
+	
 	if speed_ratio == 1.0:
 		for i in get_children():
 			if i is GravityArrows:
-				i.scale = original_arrow_scale
+
 				i.hide()
 	else:
 		for i in get_children():
 			if i is GravityArrows:
 				i.show()	
 				i.speed = speed_ratio
-				i.scale = original_arrow_scale * ratio
+
 
 
 func _on_mouse_entered() -> void:
