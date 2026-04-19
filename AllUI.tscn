@@ -106,7 +106,7 @@ offset_top = 976.0
 offset_right = 867.0
 offset_bottom = 1091.0
 text = "Press Space to Thrust
-Drag planets to alter gravity"
+Scroll planets to alter gravity"
 label_settings = SubResource("LabelSettings_8acau")
 
 [node name="PressFToStart" type="Control" parent="." unique_id=66651722]
